@@ -1,6 +1,8 @@
 import Image from "next/image"
 import { FadeInWhenVisible } from "./animations"
 
+   
+
 export function CompanyHistory() {
   return (
     <section className="py-16 bg-white">
@@ -57,7 +59,7 @@ export function CompanyHistory() {
           <FadeInWhenVisible delay={0.2}>
             <div className="relative h-[500px] rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/business-meeting-professional-office.png"
+                src="/images/test.png"
                 alt="Équipe Y3 Audit & Conseils"
                 fill
                 className="object-cover"

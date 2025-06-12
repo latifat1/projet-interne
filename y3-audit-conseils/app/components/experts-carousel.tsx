@@ -14,6 +14,9 @@ interface Expert {
   slug: string
   isPartner: boolean
   bio: string
+  contact?: {
+    linkedin: string
+  }
 }
 
 interface ExpertsCarouselProps {
@@ -78,6 +81,13 @@ export function ExpertsCarousel({ experts, onExpertClick, title }: ExpertsCarous
     setIsAutoScrolling(true)
   }
 
+  const handleLinkedInClick = (e: React.MouseEvent, linkedinUrl?: string) => {
+    e.stopPropagation() // Empêche le déclenchement du onClick de la carte
+    if (linkedinUrl) {
+      window.open(linkedinUrl, '_blank')
+    }
+  }
+
   if (experts.length === 0) {
     return null
   }
@@ -89,7 +99,7 @@ export function ExpertsCarousel({ experts, onExpertClick, title }: ExpertsCarous
 
         <div className="relative overflow-hidden" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <div
-            className={cn("flex transition-transform duration-500 ease-in-out", shouldCenter ? "justify-center" : "")}
+            className={cn("flex transition-transform duration-500 ease-in-out gap-2", shouldCenter ? "justify-center" : "")}
             style={{
               transform: shouldCenter ? "none" : `translateX(-${(currentIndex * 100) / itemsPerPage}%)`,
             }}
@@ -97,19 +107,21 @@ export function ExpertsCarousel({ experts, onExpertClick, title }: ExpertsCarous
             {experts.map((expert) => (
               <div
                 key={expert.id}
-                className={cn("px-4 flex-shrink-0", shouldCenter ? "w-full max-w-sm mx-4" : `min-w-[33.333%]`)}
+                className={cn("flex-shrink-0", shouldCenter ? "w-full max-w-[320px]" : `min-w-[33.333%]`)}
                 style={!shouldCenter ? { width: `${100 / itemsPerPage}%` } : {}}
               >
                 <div
-                  className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-full"
+                  className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-full max-w-[320px] mx-auto"
                   onClick={() => onExpertClick(expert)}
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="relative aspect-[4/5] w-full overflow-hidden">
                     <Image
                       src={expert.image || "/placeholder.svg"}
                       alt={expert.name}
                       fill
-                      className="object-cover transition-transform duration-500 hover:scale-110"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover object-top transition-transform duration-500 hover:scale-105"
+                      priority
                     />
                     {expert.isPartner && (
                       <div className="absolute top-4 right-4 bg-[#80C342] text-white px-3 py-1 rounded-full text-sm font-medium">
@@ -117,17 +129,23 @@ export function ExpertsCarousel({ experts, onExpertClick, title }: ExpertsCarous
                       </div>
                     )}
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-[#073E5D]">{expert.name}</h3>
-                    <p className="text-[#80C342] font-medium mb-3">{expert.position}</p>
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">{expert.bio}</p>
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold text-[#073E5D]">{expert.name}</h3>
+                    <p className="text-[#80C342] font-medium mb-2 text-sm">{expert.position}</p>
+                    <p className="text-gray-600 text-sm mb-3 line-clamp-3">{expert.bio}</p>
                     <div className="flex justify-between items-center">
-                      <button className="text-[#073E5D] font-medium hover:text-[#80C342] transition-colors flex items-center">
+                      <button className="text-[#073E5D] font-medium hover:text-[#80C342] transition-colors flex items-center text-sm">
                         Voir le profil
                       </button>
-                      <div className="text-[#073E5D] hover:text-[#80C342] transition-colors">
-                        <Linkedin size={20} />
-                      </div>
+                      <a 
+                        href={expert.contact?.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#073E5D] hover:text-[#80C342] transition-colors cursor-pointer"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <Linkedin size={18} />
+                      </a>
                     </div>
                   </div>
                 </div>

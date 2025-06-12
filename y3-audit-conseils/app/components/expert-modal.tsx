@@ -107,7 +107,7 @@ export function ExpertModal({ expert, isOpen, onClose }: ExpertModalProps) {
 
           <div className="flex flex-col md:flex-row gap-6">
             {/* Photo */}
-            <div className="md:w-1/4">
+            <div className="md:w-1/3">
               <div className="relative aspect-square overflow-hidden rounded-md">
                 <Image
                   src={expert.image || "/placeholder.svg"}
@@ -121,15 +121,16 @@ export function ExpertModal({ expert, isOpen, onClose }: ExpertModalProps) {
               {/* Contact info */}
               <div className="mt-4 space-y-2">
                 {/* LinkedIn */}
-                <a
-                  href={expert.contact.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 bg-[#0077B5] text-white p-2 rounded-md hover:bg-[#00669c] transition-colors w-full"
-                >
-                  <Linkedin size={18} />
-                  <span className="text-sm">LinkedIn</span>
-                </a>
+                <div className="flex items-center gap-2">
+                  <a
+                    href={expert.contact.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#073E5D] hover:text-[#80C342] transition-colors"
+                  >
+                    <Linkedin size={18} />
+                  </a>
+                </div>
 
                 {/* Phone */}
                 <a

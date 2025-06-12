@@ -1,0 +1,34 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "title": "Y3 Audit & Conseils renforce son expertise en audit",
+      "excerpt": "Notre cabinet annonce l'arrivée de nouveaux experts pour renforcer notre département d'audit et mieux servir nos clients.",
+      "content": "<p>Y3 Audit & Conseils est fier d'annoncer le renforcement de son équipe d'audit avec l'arrivée de nouveaux experts qualifiés. Cette expansion stratégique permettra à notre cabinet de mieux répondre aux besoins croissants de nos clients et de renforcer notre position de leader dans le domaine de l'audit en Côte d'Ivoire.</p><h2>Une expertise renforcée</h2><p>Les nouveaux membres de notre équipe apportent une expertise approfondie dans divers domaines de l'audit, notamment :</p><ul><li>Audit financier</li><li>Audit opérationnel</li><li>Audit des systèmes d'information</li><li>Audit de conformité</li></ul>",
+      "image": "/news/audit-expertise.jpg",
+      "date": "2024-03-15",
+      "category": "Actualités",
+      "slug": "renforcement-expertise-audit"
+    },
+    {
+      "id": 2,
+      "title": "Nouvelle certification ISO pour Y3 Audit & Conseils",
+      "excerpt": "Nous sommes fiers d'annoncer l'obtention de la certification ISO 9001:2015, reconnaissant la qualité de nos services.",
+      "content": "<p>Y3 Audit & Conseils a obtenu avec succès la certification ISO 9001:2015, une reconnaissance internationale de la qualité de nos services et de notre engagement envers l'excellence opérationnelle.</p><h2>Une reconnaissance de qualité</h2><p>La certification ISO 9001:2015 est la norme internationale la plus reconnue pour les systèmes de management de la qualité. Cette certification atteste de notre capacité à :</p><ul><li>Fournir des services de qualité constante</li><li>Améliorer continuellement nos processus</li><li>Répondre efficacement aux besoins de nos clients</li><li>Maintenir un système de management robuste</li></ul>",
+      "image": "/news/iso-certification.jpg",
+      "date": "2024-03-10",
+      "category": "Certification",
+      "slug": "nouvelle-certification-iso"
+    },
+    {
+      "id": 3,
+      "title": "Y3 Audit & Conseils lance son nouveau programme de formation",
+      "excerpt": "Découvrez notre nouveau programme de formation professionnelle en audit et conseil financier.",
+      "content": "<p>Y3 Audit & Conseils est ravi d'annoncer le lancement de son nouveau programme de formation professionnelle, conçu pour développer les compétences des professionnels en audit et conseil financier.</p><h2>Un programme complet</h2><p>Notre nouveau programme de formation couvre plusieurs domaines essentiels :</p><ul><li>Techniques d'audit modernes</li><li>Analyse financière avancée</li><li>Gestion des risques</li><li>Conformité réglementaire</li><li>Outils et technologies de l'audit</li></ul>",
+      "image": "/news/formation.jpg",
+      "date": "2024-03-05",
+      "category": "Formation",
+      "slug": "nouveau-programme-formation"
+    }
+  ]
+} 

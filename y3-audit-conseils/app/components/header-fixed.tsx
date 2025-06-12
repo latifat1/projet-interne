@@ -29,6 +29,7 @@ export function HeaderFixed() {
         { label: "Notre vision et certifications", href: "/a-propos/notre-vision-et-certifications" },
       ],
     },
+    
     {
       label: "Services",
       href: "#",
@@ -46,6 +47,10 @@ export function HeaderFixed() {
       ],
     },
     {
+      label: "Actualités",
+      href: "/actualites",
+    },
+    {
       label: "Contact",
       href: "#",
       children: [{ label: "Nous trouver", href: "/contact/nous-trouver" }],
@@ -55,8 +60,6 @@ export function HeaderFixed() {
       href: "#",
       children: [
         { label: "Carrières", href: "/rejoignez-nous/carrieres" },
-        { label: "Offres d'emploi", href: "/rejoignez-nous/offres-emploi" },
-        { label: "Stages", href: "/rejoignez-nous/stages" },
         { label: "Candidature spontanée", href: "/rejoignez-nous/candidature" },
       ],
     },
@@ -130,6 +133,7 @@ export function HeaderFixed() {
                 alt="Y3 Audit & Conseils"
                 width={200}
                 height={70}
+                priority
                 className={cn("transition-all duration-300", scrolled ? "h-12 w-auto" : "h-16 w-auto")}
               />
             </Link>

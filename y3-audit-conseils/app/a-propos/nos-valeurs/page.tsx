@@ -29,7 +29,7 @@ export default function NosValeursPage() {
           </div>
           <div className="relative h-[400px]">
             <Image
-              src="/placeholder.svg?height=400&width=600&query=business%20team%20meeting%20discussion"
+              src="/philosophie.jpeg"
               alt="Notre philosophie"
               fill
               className="object-cover rounded-lg shadow-lg"

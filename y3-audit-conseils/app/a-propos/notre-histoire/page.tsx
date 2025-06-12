@@ -64,20 +64,28 @@ export default function NotreHistoirePage() {
         </div>
 
         <div className="bg-gray-50 p-8 rounded-lg shadow-sm mb-16">
-          <h2 className="text-2xl font-semibold text-[#073E5D] mb-4 text-center">Nos Atouts Distinctifs</h2>
-          <p className="text-gray-700 text-center max-w-3xl mx-auto">
-          <h2> Excellence Technique</h2>
-           L'expertise reconnue de nos fondateurs s'appuie sur une réputation établie auprès
-           d'entreprises locales et de filiales de groupes internationaux, tant au niveau national
-           que continental. Notre cabinet applique les mêmes standards de qualité, d'éthique et
-           de déontologie que les structures internationales de référence, garantissant à nos
-           clients une prestation irréprochable à chaque mission.
-           <h2>Réactivité & Adaptabilité</h2>
-           Notre organisation privilégie l'autonomie et la responsabilisation de nos équipes, leur
-           permettant de s'adapter finement aux particularités de chaque client. Cette culture
-           d'entreprise favorise une prise de décision rapide et une résolution efficace des
-           situations complexes, assurant fluidité et réactivité dans l'exécution de nos missions.
-          </p>
+          <h2 className="text-2xl font-semibold text-[#073E5D] mb-8 text-center">Nos Atouts Distinctifs</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-semibold text-[#073E5D] mb-3 text-center">Excellence Technique</h3>
+              <p className="text-gray-700 text-center">
+                L'expertise reconnue de nos fondateurs s'appuie sur une réputation établie auprès
+                d'entreprises locales et de filiales de groupes internationaux, tant au niveau national
+                que continental. Notre cabinet applique les mêmes standards de qualité, d'éthique et
+                de déontologie que les structures internationales de référence, garantissant à nos
+                clients une prestation irréprochable à chaque mission.
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-xl font-semibold text-[#073E5D] mb-3 text-center">Réactivité & Adaptabilité</h3>
+              <p className="text-gray-700 text-center">
+                Notre organisation privilégie l'autonomie et la responsabilisation de nos équipes, leur
+                permettant de s'adapter finement aux particularités de chaque client. Cette culture
+                d'entreprise favorise une prise de décision rapide et une résolution efficace des
+                situations complexes, assurant fluidité et réactivité dans l'exécution de nos missions.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* <div className="text-center">

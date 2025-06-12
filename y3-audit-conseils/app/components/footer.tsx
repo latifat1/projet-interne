@@ -137,7 +137,7 @@ export function Footer() {
     Inscrivez-vous à notre newsletter pour recevoir nos actualités et conseils.
   </p>
   <form
-    action="https://eepurl.com/dyimMv"
+    action="https://gmail.us7.list-manage.com/subscribe/post?u=564210c912175ad3e644784c4&id=a26ea5c286&f_id=002ea8e4f0"
     method="POST"
     target="_blank"
     className="space-y-2"

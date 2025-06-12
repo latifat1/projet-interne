@@ -111,6 +111,7 @@ export function MainSlider() {
               fill
               className="object-cover"
               priority={index === 0}
+              sizes="100vw"
             />
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
             <div className="absolute inset-0 flex items-center justify-center">
@@ -119,12 +120,12 @@ export function MainSlider() {
                   <h3 className="text-xl md:text-2xl font-medium text-[#80C342] mb-2">{slide.subtitle}</h3>
                   <h2 className="text-3xl md:text-5xl font-bold mb-4">{slide.title}</h2>
                   <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">{slide.description}</p>
-                  <Link
+                  {/* <Link
                     href={slide.buttonLink}
                     className="inline-block bg-[#80C342] hover:bg-[#073E5D] text-white font-medium px-6 py-3 rounded-md transition-colors duration-300"
                   >
                     {slide.buttonText}
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>

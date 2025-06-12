@@ -18,12 +18,6 @@ const MainServices = dynamic(() => import("./components/main-services").then((mo
   ),
 })
 
-const PartnersCarousel = dynamic(() => import("./components/partners-carousel").then((mod) => mod.PartnersCarousel), {
-  loading: () => (
-    <div className="w-full py-8 bg-gray-50 flex items-center justify-center">Chargement des partenaires...</div>
-  ),
-})
-
 export default function Home() {
   return (
     <main>
@@ -32,7 +26,6 @@ export default function Home() {
       <ActionFields />
       <CompanyHistory />
       <HumanCentered />
-      <PartnersCarousel />
     </main>
   )
 }

@@ -135,12 +135,12 @@ export function ExpertCarousel() {
                   Expert en audit et conseil avec plus de 15 ans d'expérience dans le secteur financier et bancaire.
                   Spécialisé dans l'accompagnement des entreprises en croissance.
                 </p>
-                <button
+                {/* <button
                   onClick={() => handleExpertClick(expert)}
                   className="inline-block bg-[#073E5D] text-white px-6 py-2 rounded-md hover:bg-[#80C342] transition-colors"
                 >
                   En savoir plus
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

@@ -76,6 +76,7 @@ export function ImprovedDropdown({ item }: DropdownProps) {
 
   return (
     <div ref={dropdownRef} className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      {item.children ? (
       <button
         className="flex items-center text-[#073E5D] hover:text-[#80C342] font-medium transition-colors"
         onClick={toggleDropdown}
@@ -88,6 +89,14 @@ export function ImprovedDropdown({ item }: DropdownProps) {
           className={cn("ml-1 transition-transform duration-200", isOpen ? "transform rotate-180" : "")}
         />
       </button>
+      ) : (
+        <Link
+          href={item.href}
+          className="flex items-center text-[#073E5D] hover:text-[#80C342] font-medium transition-colors"
+        >
+          {item.label}
+        </Link>
+      )}
 
       {isOpen && item.children && (
         <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-1 z-10">

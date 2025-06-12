@@ -17,7 +17,7 @@ export function Features() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative h-[400px] lg:h-[500px]">
             <Image
-              src="/business-meeting-professional-office.png"
+              src="/images/test.png"
               alt="Nos atouts"
               fill
               className="object-cover rounded-lg shadow-lg"

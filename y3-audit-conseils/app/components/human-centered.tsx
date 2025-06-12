@@ -8,10 +8,20 @@ export function HumanCentered() {
     <section className="py-16 bg-gray-100">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <FadeInWhenVisible delay={0.2}>
+          {/* <FadeInWhenVisible delay={0.2}>
             <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/professional-business-meeting.png"
+                src="/image/test.png"
+                alt="L'humain au cœur de notre activité"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </FadeInWhenVisible> */}
+            <FadeInWhenVisible delay={0.2}>
+            <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/images/test.png"
                 alt="L'humain au cœur de notre activité"
                 fill
                 className="object-cover"

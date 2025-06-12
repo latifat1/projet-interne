@@ -43,14 +43,14 @@ export function MainServices() {
                 <h3 className="text-xl font-bold text-[#073E5D] text-center mb-2">{service.title}</h3>
                 <h4 className="text-[#80C342] font-medium text-center mb-4">{service.subtitle}</h4>
                 <p className="text-gray-600 text-center mb-6">{service.description}</p>
-                <div className="text-center">
+                {/* <div className="text-center">
                   <Link
                     href={service.link}
                     className="inline-block text-[#073E5D] hover:text-[#80C342] font-medium transition-colors"
                   >
                     En savoir plus
                   </Link>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>

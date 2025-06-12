@@ -132,7 +132,7 @@ export default function ExpertiseSectoriellePage() {
                     ))}
                   </ul>
 
-                  <div className="mt-6">
+                  {/* <div className="mt-6">
                     <Link
                       href={`/contact/rendez-vous?service=${encodeURIComponent(expertise.title)}`}
                       className="inline-flex items-center text-[#073E5D] hover:text-[#80C342] font-medium transition-colors"
@@ -140,7 +140,7 @@ export default function ExpertiseSectoriellePage() {
                       En savoir plus sur nos services {expertise.title.toLowerCase()}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </FadeInWhenVisible>
