@@ -34,8 +34,25 @@ export function ExpertsCarousel({ experts, onExpertClick, title }: ExpertsCarous
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoScrolling, setIsAutoScrolling] = useState(true)
   const autoScrollTimerRef = useRef<NodeJS.Timeout | null>(null)
+  
+  // Responsive items per page
+  const [itemsPerPage, setItemsPerPage] = useState(3)
 
-  const itemsPerPage = 3
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 640) {
+        setItemsPerPage(1)
+      } else if (window.innerWidth < 1024) {
+        setItemsPerPage(2)
+      } else {
+        setItemsPerPage(3)
+      }
+    }
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   const maxIndex = Math.max(0, experts.length - itemsPerPage)
   const shouldCenter = experts.length <= itemsPerPage
 
@@ -116,11 +133,14 @@ export function ExpertsCarousel({ experts, onExpertClick, title }: ExpertsCarous
             {experts.map((expert) => (
               <div
                 key={expert.id}
-                className={cn("flex-shrink-0", shouldCenter ? "w-full max-w-[320px]" : `min-w-[33.333%]`)}
+                className={cn(
+                  "flex-shrink-0",
+                  itemsPerPage === 1 ? "w-full max-w-xs px-2" : itemsPerPage === 2 ? "w-1/2 px-2" : "w-1/3 px-1",
+                )}
                 style={!shouldCenter ? { width: `${100 / itemsPerPage}%` } : {}}
               >
                 <div
-                  className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-full max-w-[320px] mx-auto"
+                  className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer h-full max-w-xs mx-auto"
                   onClick={() => onExpertClick(expert)}
                 >
                   <div className="relative aspect-[4/5] w-full overflow-hidden">
