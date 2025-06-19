@@ -65,15 +65,12 @@ export function ActionFields() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {fields.map((field, index) => (
             <FadeInWhenVisible key={index} delay={index * 0.1}>
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:border-[#80C342] transition-colors duration-300">
-                <div className="flex flex-col items-center mb-4">
-                  <div className="bg-transparent p-3 rounded-full mb-4">{field.icon}</div>
-                  <h3 className="text-xl font-semibold text-[#073E5D] text-center">{field.title}</h3>
+              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:border-[#80C342] transition-colors duration-300 h-[250px] flex flex-col">
+                <div className="flex flex-col items-center">
+                  <div className="bg-transparent p-3 rounded-full mb-3">{field.icon}</div>
+                  <h3 className="text-xl font-semibold text-[#073E5D] text-center mb-3">{field.title}</h3>
                 </div>
-                <p className="text-gray-600 text-center mb-4">{field.description}</p>
-                {/* <Link href={field.link} className="text-[#80C342] hover:text-[#073E5D] font-medium transition-colors">
-                  En savoir plus
-                </Link> */}
+                <p className="text-gray-600 text-center mt-auto">{field.description}</p>
               </div>
             </FadeInWhenVisible>
           ))}

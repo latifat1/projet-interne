@@ -21,7 +21,7 @@ export function HumanCentered() {
             <FadeInWhenVisible delay={0.2}>
             <div className="relative h-[400px] rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/images/test.png"
+                src="/écoutes.jpeg"
                 alt="L'humain au cœur de notre activité"
                 fill
                 className="object-cover"

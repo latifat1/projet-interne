@@ -6,28 +6,34 @@ export function Footer() {
 
   return (
     <footer className="bg-[#073E5D] text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* À propos */}
-          <div>
+          <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4">
-              <Image src="/logo-y3.png" alt="Y3 Audit & Conseils" width={180} height={60} className="h-14 w-auto" />
+              <Image src="/logo-y3.png" alt="Y3 Audit & Conseils" width={400} height={160} className="h-24 sm:h-32 w-auto" />
             </div>
-            <p className="text-gray-300 mb-4">
+            <p className="text-gray-300 mb-4 text-sm sm:text-base">
               Cabinet d'expertise comptable, d'audit et de conseil dédié à l'accompagnement des entreprises dans leur
               développement.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white hover:text-[#80C342] transition-colors" aria-label="LinkedIn">
-                <Linkedin size={20} />
+              <a 
+                href="https://www.linkedin.com/company/y3-audit-conseils/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white hover:text-[#80C342] transition-colors" 
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} className="sm:w-5 sm:h-5" />
               </a>
             </div>
           </div>
 
           {/* Liens rapides */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Liens rapides</h3>
-            <ul className="space-y-2">
+            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Liens rapides</h3>
+            <ul className="space-y-1 sm:space-y-2">
               <li>
                 <Link
                   href="/a-propos/notre-histoire"
@@ -108,16 +114,23 @@ export function Footer() {
             </ul>
           </div>
 
-         {/* Newsletter*/}
-          {/* <div>
+          {/* Newsletter */}
+          <div>
             <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
             <p className="text-gray-300 mb-4">
               Inscrivez-vous à notre newsletter pour recevoir nos actualités et conseils.
             </p>
-            <form className="space-y-2">
+            <form
+              action="https://gmail.us7.list-manage.com/subscribe/post?u=564210c912175ad3e644784c4&id=a26ea5c286&f_id=002ea8e4f0"
+              method="POST"
+              target="_blank"
+              className="space-y-2"
+            >
               <div>
                 <input
                   type="email"
+                  name="EMAIL"
+                  required
                   placeholder="Votre email"
                   className="w-full px-3 py-2 bg-[#0A4E73] border border-[#1A6A95] rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#80C342]"
                 />
@@ -129,59 +142,6 @@ export function Footer() {
                 S'inscrire
               </button>
             </form>
-          </div> */}
-          {/* Newsletter */}
-<div>
-  <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
-  <p className="text-gray-300 mb-4">
-    Inscrivez-vous à notre newsletter pour recevoir nos actualités et conseils.
-  </p>
-  <form
-    action="https://gmail.us7.list-manage.com/subscribe/post?u=564210c912175ad3e644784c4&id=a26ea5c286&f_id=002ea8e4f0"
-    method="POST"
-    target="_blank"
-    className="space-y-2"
-  >
-    <div>
-      <input
-        type="email"
-        name="EMAIL"
-        required
-        placeholder="Votre email"
-        className="w-full px-3 py-2 bg-[#0A4E73] border border-[#1A6A95] rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#80C342]"
-      />
-    </div>
-    <button
-      type="submit"
-      className="w-full bg-[#80C342] hover:bg-gray-700 text-white py-2 px-4 rounded-md transition-colors"
-    >
-      S'inscrire
-    </button>
-  </form>
-</div>
-
-        </div>
-      </div>
-
-      {/* Copyright */}
-      <div className="bg-gray-900 py-4">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">&copy; {currentYear} Y3 Audit & Conseils. Tous droits réservés.</p>
-            <div className="flex space-x-4 mt-2 md:mt-0">
-              <Link href="/mentions-legales" className="text-gray-400 hover:text-[#80C342] text-sm transition-colors">
-                Mentions légales
-              </Link>
-              <Link
-                href="/politique-de-confidentialite"
-                className="text-gray-400 hover:text-[#80C342] text-sm transition-colors"
-              >
-                Politique de confidentialité
-              </Link>
-              <Link href="/cgv" className="text-gray-400 hover:text-[#80C342] text-sm transition-colors">
-                CGV
-              </Link>
-            </div>
           </div>
         </div>
       </div>

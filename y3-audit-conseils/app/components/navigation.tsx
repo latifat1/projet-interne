@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, ChevronDown, Phone, Mail, MapPin, Clock, Facebook, Twitter, Linkedin } from "lucide-react"
+import { Menu, X, ChevronDown, Phone, Mail, MapPin, Clock, Linkedin } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface NavItem {
@@ -38,6 +38,10 @@ export function Navigation() {
         { label: "Consulting", href: "/services/consulting" },
         { label: "Formation", href: "/services/formation" },
       ],
+    },
+    {
+      label: "Actualités",
+      href: "/actualites",
     },
     {
       label: "Contact",
@@ -111,12 +115,6 @@ export function Navigation() {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <a href="#" className="text-white hover:text-[#80C342]" aria-label="Facebook">
-                <Facebook size={16} />
-              </a>
-              <a href="#" className="text-white hover:text-[#80C342]" aria-label="Twitter">
-                <Twitter size={16} />
-              </a>
               <a href="#" className="text-white hover:text-[#80C342]" aria-label="LinkedIn">
                 <Linkedin size={16} />
               </a>
@@ -130,7 +128,7 @@ export function Navigation() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center">
-              <Image src="/logo-y3.png" alt="Y3 Audit & Conseils" width={150} height={50} className="h-10 w-auto" />
+              <Image src="/logo-y3.png" alt="Y3 Audit & Conseils" width={300} height={120} className="h-24 w-auto" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -139,33 +137,44 @@ export function Navigation() {
                 <div
                   key={item.label}
                   className="relative group"
-                  onMouseEnter={() => toggleDropdown(item.label)}
-                  onMouseLeave={() => setTimeout(() => closeDropdown(), 100)}
+                  onMouseEnter={() => item.children && toggleDropdown(item.label)}
+                  onMouseLeave={() => item.children && setTimeout(() => closeDropdown(), 100)}
                 >
-                  <button
-                    className="flex items-center text-[#073E5D] hover:text-[#80C342] font-medium transition-colors"
-                    onClick={() => toggleDropdown(item.label)}
-                  >
-                    {item.label}
-                    <ChevronDown size={16} className="ml-1" />
-                  </button>
+                  {item.children ? (
+                    <>
+                      <button
+                        className="flex items-center text-[#073E5D] hover:text-[#80C342] font-medium transition-colors"
+                        onClick={() => toggleDropdown(item.label)}
+                      >
+                        {item.label}
+                        <ChevronDown size={16} className="ml-1" />
+                      </button>
 
-                  {activeDropdown === item.label && item.children && (
-                    <div
-                      className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10"
-                      onMouseEnter={() => toggleDropdown(item.label)}
-                      onMouseLeave={() => closeDropdown()}
-                    >
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          href={child.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#80C342]"
+                      {activeDropdown === item.label && item.children && (
+                        <div
+                          className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10"
+                          onMouseEnter={() => toggleDropdown(item.label)}
+                          onMouseLeave={() => closeDropdown()}
                         >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
+                          {item.children.map((child) => (
+                            <Link
+                              key={child.label}
+                              href={child.href}
+                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#80C342]"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-[#073E5D] hover:text-[#80C342] font-medium transition-colors"
+                    >
+                      {item.label}
+                    </Link>
                   )}
                 </div>
               ))}
@@ -191,33 +200,45 @@ export function Navigation() {
           <div className="container mx-auto px-4 py-3">
             {navItems.map((item) => (
               <div key={item.label} className="py-2">
-                <button
-                  className="flex items-center justify-between w-full text-[#073E5D] font-medium"
-                  onClick={() => toggleDropdown(item.label)}
-                >
-                  {item.label}
-                  <ChevronDown
-                    size={16}
-                    className={cn(
-                      "transition-transform duration-200",
-                      activeDropdown === item.label ? "transform rotate-180" : "",
-                    )}
-                  />
-                </button>
+                {item.children ? (
+                  <>
+                    <button
+                      className="flex items-center justify-between w-full text-[#073E5D] font-medium"
+                      onClick={() => toggleDropdown(item.label)}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        size={16}
+                        className={cn(
+                          "transition-transform duration-200",
+                          activeDropdown === item.label ? "transform rotate-180" : "",
+                        )}
+                      />
+                    </button>
 
-                {activeDropdown === item.label && item.children && (
-                  <div className="mt-2 ml-4 border-l-2 border-[#80C342] pl-4">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.label}
-                        href={child.href}
-                        className="block py-2 text-gray-700 hover:text-[#80C342]"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
+                    {activeDropdown === item.label && item.children && (
+                      <div className="mt-2 ml-4 border-l-2 border-[#80C342] pl-4">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            className="block py-2 text-gray-700 hover:text-[#80C342]"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="block w-full text-[#073E5D] font-medium hover:text-[#80C342]"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
                 )}
               </div>
             ))}
@@ -248,12 +269,6 @@ export function Navigation() {
                 </div>
               </div>
               <div className="mt-4 flex items-center space-x-4">
-                <a href="#" className="text-[#073E5D] hover:text-[#80C342]" aria-label="Facebook">
-                  <Facebook size={18} />
-                </a>
-                <a href="#" className="text-[#073E5D] hover:text-[#80C342]" aria-label="Twitter">
-                  <Twitter size={18} />
-                </a>
                 <a href="#" className="text-[#073E5D] hover:text-[#80C342]" aria-label="LinkedIn">
                   <Linkedin size={18} />
                 </a>

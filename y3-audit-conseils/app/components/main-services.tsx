@@ -37,12 +37,12 @@ export function MainServices() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:border-[#80C342] transition-colors duration-300"
+                className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:border-[#80C342] transition-colors duration-300 flex flex-col h-full"
               >
                 <div className="flex justify-center mb-4">{service.icon}</div>
                 <h3 className="text-xl font-bold text-[#073E5D] text-center mb-2">{service.title}</h3>
                 <h4 className="text-[#80C342] font-medium text-center mb-4">{service.subtitle}</h4>
-                <p className="text-gray-600 text-center mb-6">{service.description}</p>
+                <p className="text-gray-600 text-center mb-6 flex-grow">{service.description}</p>
                 {/* <div className="text-center">
                   <Link
                     href={service.link}

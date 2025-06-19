@@ -95,7 +95,7 @@ export function MainSlider() {
   }
 
   return (
-    <div className="relative h-[780px] overflow-hidden" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className="relative h-[780px] overflow-hidden -mx-4" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {slides.map((slide, index) => (
         <div
           key={slide.id}

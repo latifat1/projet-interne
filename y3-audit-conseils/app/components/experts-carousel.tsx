@@ -14,7 +14,12 @@ interface Expert {
   slug: string
   isPartner: boolean
   bio: string
-  contact?: {
+  description: string[]
+  office: string
+  contact: {
+    email: string
+    phone: string
+    phoneSecondary?: string
     linkedin: string
   }
 }
@@ -99,7 +104,11 @@ export function ExpertsCarousel({ experts, onExpertClick, title }: ExpertsCarous
 
         <div className="relative overflow-hidden" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           <div
-            className={cn("flex transition-transform duration-500 ease-in-out gap-2", shouldCenter ? "justify-center" : "")}
+            className={cn(
+              "flex transition-transform duration-500 ease-in-out",
+              title === "Nos Experts" ? "gap-1" : "gap-2",
+              shouldCenter ? "justify-center" : ""
+            )}
             style={{
               transform: shouldCenter ? "none" : `translateX(-${(currentIndex * 100) / itemsPerPage}%)`,
             }}

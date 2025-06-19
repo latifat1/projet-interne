@@ -5,7 +5,7 @@ import type React from "react"
 import { useState } from "react"
 import { MapPin, Mail, Phone, Clock, CheckCircle, Loader2 } from "lucide-react"
 import { cn } from "@/lib/utils"
-import InteractiveMap from "@/app/components/interactive-map"
+import Image from "next/image"
 
 export default function NousTrouverPage() {
   const [formData, setFormData] = useState({
@@ -81,9 +81,6 @@ export default function NousTrouverPage() {
     { value: "autre", label: "Autre" },
   ]
 
-  // Coordonnées approximatives pour Cocody Riviera Golf Mafit, Abidjan
-  const officeLocation: [number, number] = [5.3484, -4.0042]
-
   return (
     <main className="py-12">
       <div className="container mx-auto px-4">
@@ -101,15 +98,28 @@ export default function NousTrouverPage() {
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <h2 className="text-2xl font-semibold text-[#073E5D] mb-6">Nos coordonnées</h2>
 
-            {/* Carte interactive */}
+            {/* Carte statique */}
             <div className="relative h-[300px] w-full rounded-lg overflow-hidden mb-8">
-              <InteractiveMap
-                center={officeLocation}
-                markerPosition={officeLocation}
-                popupText="Y3 Audit & Conseils<br/>Cocody Riviera Golf Mafit<br/>Appt 103 Immeuble Tiga"
-                height="300px"
-                zoom={16}
-              />
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15890.078150849655!2d-3.970157214013181!3d5.3373524371642755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1edf8d6fb7533%3A0xa6cc83ac235fb341!2sY3%20Audit%20et%20Conseils!5e0!3m2!1sfr!2sci!4v1749816029717!5m2!1sfr!2sci"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+              <div className="absolute bottom-4 right-4">
+                <a
+                  href="https://maps.app.goo.gl/4FZHdb9vVnozbRi86"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#80C342] text-white px-4 py-2 rounded-md hover:bg-[#073E5D] transition-colors flex items-center gap-2"
+                >
+                  <MapPin className="h-5 w-5" />
+                  Obtenir l'itinéraire
+                </a>
+              </div>
             </div>
 
             {/* Coordonnées complètes */}
@@ -120,7 +130,19 @@ export default function NousTrouverPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-[#073E5D]">Adresse</h3>
-                  <p className="text-gray-700">cocody rieviera golf mafit - appt 103 immeuble tiga</p>
+                  <div className="flex flex-col gap-2">
+                    <a 
+                      href="https://maps.app.goo.gl/4FZHdb9vVnozbRi86"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-700 hover:text-[#80C342] transition-colors"
+                    >
+                      M'Badon, Avenue Jean Malan, Abidjan
+                    </a>
+                    <p className="text-sm text-gray-500">
+                      Cliquez sur l'adresse pour voir la localisation exacte sur Google Maps
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -140,7 +162,7 @@ export default function NousTrouverPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-[#073E5D]">Email</h3>
-                  <p className="text-gray-700">contact@y3audit.fr</p>
+                  <p className="text-gray-700">contact@ycubeac.com</p>
                 </div>
               </div>
 
@@ -188,6 +210,7 @@ export default function NousTrouverPage() {
                       name="nom"
                       value={formData.nom}
                       onChange={handleChange}
+                      autoComplete="family-name"
                       className={cn(
                         "w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#80C342]",
                         errors.nom ? "border-red-500" : "border-gray-300",
@@ -206,6 +229,7 @@ export default function NousTrouverPage() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
+                      autoComplete="email"
                       className={cn(
                         "w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#80C342]",
                         errors.email ? "border-red-500" : "border-gray-300",
@@ -226,6 +250,7 @@ export default function NousTrouverPage() {
                       name="telephone"
                       value={formData.telephone}
                       onChange={handleChange}
+                      autoComplete="tel"
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#80C342]"
                     />
                   </div>
@@ -295,30 +320,6 @@ export default function NousTrouverPage() {
                 <p className="text-xs text-gray-500 mt-4">* Champs obligatoires</p>
               </form>
             )}
-          </div>
-        </div>
-
-        {/* Section supplémentaire avec des informations sur les bureaux */}
-        <div className="bg-gray-100 p-8 rounded-lg shadow-sm mb-16">
-          <h2 className="text-2xl font-semibold text-[#073E5D] mb-6 text-center">Nos bureaux</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-xl font-semibold text-[#073E5D] mb-3">Abidjan (Siège social)</h3>
-              <p className="text-gray-700 mb-2">cocody rieviera golf mafit - appt 103 immeuble tiga</p>
-              <p className="text-gray-700">+225 27 22 23 05 26</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-xl font-semibold text-[#073E5D] mb-3">Lyon</h3>
-              <p className="text-gray-700 mb-2">45 Rue de la République</p>
-              <p className="text-gray-700 mb-2">69002 Lyon, France</p>
-              <p className="text-gray-700">+33 4 56 78 90 12</p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-xl font-semibold text-[#073E5D] mb-3">Marseille</h3>
-              <p className="text-gray-700 mb-2">78 La Canebière</p>
-              <p className="text-gray-700 mb-2">13001 Marseille, France</p>
-              <p className="text-gray-700">+33 4 91 23 45 67</p>
-            </div>
           </div>
         </div>
       </div>

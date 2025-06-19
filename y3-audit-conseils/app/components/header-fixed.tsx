@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, Phone, Mail, MapPin, Facebook, Twitter, Linkedin } from "lucide-react"
+import { Menu, X, ChevronDown, Phone, Mail, MapPin, Linkedin } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ImprovedDropdown } from "./improved-dropdown"
 
@@ -109,13 +109,7 @@ export function HeaderFixed() {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <a href="#" className="text-white hover:text-[#80C342]" aria-label="facebook">
-                <Facebook size={16} />
-              </a>
-              <a href="#" className="text-white hover:text-[#80C342]" aria-label="Twitter">
-                <Twitter size={16} />
-              </a>
-              <a href="#" className="text-white hover:text-[#80C342]" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/y3-audit-conseils/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#80C342]" aria-label="LinkedIn">
                 <Linkedin size={16} />
               </a>
             </div>
@@ -131,10 +125,10 @@ export function HeaderFixed() {
               <Image
                 src="/logo-y3.png"
                 alt="Y3 Audit & Conseils"
-                width={200}
-                height={70}
+                width={300}
+                height={120}
                 priority
-                className={cn("transition-all duration-300", scrolled ? "h-12 w-auto" : "h-16 w-auto")}
+                className={cn("transition-all duration-300", scrolled ? "h-14 w-auto" : "h-20 w-auto")}
               />
             </Link>
 
@@ -161,44 +155,56 @@ export function HeaderFixed() {
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t shadow-lg">
-          <div className="container mx-auto px-4 py-3">
+        <div className="md:hidden bg-white border-t shadow-lg max-h-[80vh] overflow-y-auto">
+          <div className="container mx-auto px-4 py-4">
             {navItems.map((item) => (
-              <div key={item.label} className="py-2">
-                <button
-                  className="flex items-center justify-between w-full text-[#073E5D] font-medium"
-                  onClick={() => toggleDropdown(item.label)}
-                >
-                  {item.label}
-                  <X
-                    size={16}
-                    className={cn(
-                      "transition-transform duration-200",
-                      activeDropdown === item.label ? "transform rotate-180" : "",
-                    )}
-                  />
-                </button>
+              <div key={item.label} className="py-3 border-b border-gray-100 last:border-b-0">
+                {item.children ? (
+                  <>
+                    <button
+                      className="flex items-center justify-between w-full text-[#073E5D] font-semibold text-lg py-2"
+                      onClick={() => toggleDropdown(item.label)}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        size={18}
+                        className={cn(
+                          "transition-transform duration-300",
+                          activeDropdown === item.label ? "transform rotate-180" : "",
+                        )}
+                      />
+                    </button>
 
-                {activeDropdown === item.label && item.children && (
-                  <div className="mt-2 ml-4 border-l-2 border-[#80C342] pl-4">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.label}
-                        href={child.href}
-                        className="block py-2 text-gray-700 hover:text-[#80C342]"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                  </div>
+                    {activeDropdown === item.label && item.children && (
+                      <div className="mt-3 ml-4 border-l-2 border-[#80C342] pl-4 space-y-2">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            className="block py-2 text-gray-700 hover:text-[#80C342] transition-colors duration-200"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="block w-full text-[#073E5D] font-semibold text-lg py-2 hover:text-[#80C342] transition-colors duration-200"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
                 )}
               </div>
             ))}
-            <div className="mt-4 pt-4 border-t border-gray-200">
+            <div className="mt-6 pt-6 border-t border-gray-200">
               <Link
                 href="/contact/rendez-vous"
-                className="block w-full bg-[#80C342] hover:bg-gray-700 text-white text-center px-5 py-2 rounded-md transition-colors duration-300"
+                className="block w-full bg-[#80C342] hover:bg-[#073E5D] text-white text-center px-6 py-4 rounded-lg font-semibold transition-colors duration-300"
                 onClick={() => setIsOpen(false)}
               >
                 Prendre un rendez-vous
@@ -218,13 +224,7 @@ export function HeaderFixed() {
                 </div>
               </div>
               <div className="mt-4 flex items-center space-x-4">
-                <a href="#" className="text-[#073E5D] hover:text-[#80C342]" aria-label="Facebook">
-                  <Facebook size={18} />
-                </a>
-                <a href="#" className="text-[#073E5D] hover:text-[#80C342]" aria-label="Twitter">
-                  <Twitter size={18} />
-                </a>
-                <a href="#" className="text-[#073E5D] hover:text-[#80C342]" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/y3-audit-conseils/" target="_blank" rel="noopener noreferrer" className="text-[#073E5D] hover:text-[#80C342]" aria-label="LinkedIn">
                   <Linkedin size={18} />
                 </a>
               </div>

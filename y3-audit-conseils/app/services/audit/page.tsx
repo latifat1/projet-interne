@@ -42,14 +42,19 @@ export default function AuditPage() {
             </ul>
           </div>
           <div className="relative h-[400px]">
-            <Image src="/placeholder-fyntk.png" alt="Audit légal" fill className="object-cover rounded-lg shadow-lg" />
+            <Image 
+              src="/placeholder-fyntk.png" 
+              alt="Audit légal" 
+              fill 
+              className="object-cover rounded-lg shadow-lg" 
+            />
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="relative h-[400px] order-2 lg:order-1">
             <Image
-              src="/business-audit-team.png"
+              src="/Auditcontractuel.jpeg"
               alt="Audit contractuel"
               fill
               className="object-cover rounded-lg shadow-lg"
