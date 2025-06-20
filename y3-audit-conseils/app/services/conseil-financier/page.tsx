@@ -44,7 +44,7 @@ export default function ConseilFinancierPage() {
           </div>
           <div className="relative h-[400px]">
             <Image
-              src="/financial-analysis.png"
+              src="/analyse-financière.jpeg"
               alt="Analyse financière"
               fill
               className="object-cover rounded-lg shadow-lg"
@@ -55,7 +55,7 @@ export default function ConseilFinancierPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="relative h-[400px] order-2 lg:order-1">
             <Image
-              src="/business-planning.png"
+              src="/planification-financière.jpg"
               alt="Planification financière"
               fill
               className="object-cover rounded-lg shadow-lg"

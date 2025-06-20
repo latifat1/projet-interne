@@ -35,7 +35,7 @@ export function ActionFields() {
       title: "Conseil Opérationnel",
       description: "Nos experts vous aident à répondre au mieux, aux enjeux juridiques et fiscaux de votre entreprise.",
       icon: <TrendingUp className="h-10 w-10 text-[#80C342]" />,
-      link: "/services/conseil-en-gestion",
+      link: "/services/conseil-operationnel",
     },
     {
       title: "Expertise Comptable",

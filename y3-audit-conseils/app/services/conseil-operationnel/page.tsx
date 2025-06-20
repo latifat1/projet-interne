@@ -2,15 +2,15 @@ import Image from "next/image"
 import Link from "next/link"
 import { CheckCircle } from "lucide-react"
 
-export default function ConsultingPage() {
+export default function ConseilOperationnelPage() {
   return (
     <main className="py-12">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold text-[#073E5D] mb-4">Consulting</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-[#073E5D] mb-4">Conseil Opérationnel</h1>
           <div className="w-20 h-1 bg-[#80C342] mx-auto"></div>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-            Nos services de consulting vous accompagnent dans la résolution de vos problématiques complexes et la mise
+            Nos services de conseil opérationnel vous accompagnent dans la résolution de vos problématiques complexes et la mise
             en œuvre de solutions adaptées à vos enjeux.
           </p>
         </div>
@@ -43,7 +43,7 @@ export default function ConsultingPage() {
           </div>
           <div className="relative h-[400px]">
             <Image
-              src="/business-strategy.png"
+              src="/Stratégie-d'entreprise.jpeg"
               alt="Stratégie d'entreprise"
               fill
               className="object-cover rounded-lg shadow-lg"
@@ -54,7 +54,7 @@ export default function ConsultingPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="relative h-[400px] order-2 lg:order-1">
             <Image
-              src="/digital-transformation.png"
+              src="/Transformation-digitale.jpeg"
               alt="Transformation digitale"
               fill
               className="object-cover rounded-lg shadow-lg"
@@ -116,9 +116,9 @@ export default function ConsultingPage() {
         </div>
 
         <div className="text-center">
-          <h2 className="text-2xl font-semibold text-[#073E5D] mb-6">Besoin d'un accompagnement en consulting ?</h2>
+          <h2 className="text-2xl font-semibold text-[#073E5D] mb-6">Besoin d'un accompagnement en conseil opérationnel ?</h2>
           <p className="text-gray-700 mb-8 max-w-2xl mx-auto">
-            Contactez-nous pour discuter de vos besoins spécifiques et découvrir comment nos services de consulting
+            Contactez-nous pour discuter de vos besoins spécifiques et découvrir comment nos services de conseil opérationnel
             peuvent contribuer à la performance et au développement de votre entreprise.
           </p>
           <Link

@@ -38,7 +38,7 @@ export function HeaderFixed() {
         { label: "Comptabilité", href: "/services/comptabilite" },
         { label: "Conseil financier", href: "/services/conseil-financier" },
         { label: "Conseil en risques", href: "/services/conseil-en-risques" },
-        { label: "Consulting", href: "/services/consulting" },
+        { label: "Conseil Opérationnel", href: "/services/conseil-operationnel" },
         { label: "Formation", href: "/services/formation" },
         {
           label: "Expertise sectorielle",
