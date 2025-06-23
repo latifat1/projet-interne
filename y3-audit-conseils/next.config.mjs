@@ -13,6 +13,12 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'blob.v0.dev',
       },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '1337',
+        pathname: '/uploads/**',
+      }
     ],
     // Suppression de unoptimized: true pour permettre l'optimisation des images
   },

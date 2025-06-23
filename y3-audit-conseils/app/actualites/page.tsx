@@ -5,7 +5,7 @@ import { Calendar, ArrowRight, Search, Filter, Eye, Share2, BookmarkPlus, Trendi
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 
-// Données simulées d'actualités
+// Données locales d'actualités
 const newsData = {
   news: [
     {
@@ -80,105 +80,61 @@ const newsData = {
 const categories = ["Tous", "Certification", "Formation", "Partenariat", "Événement", "Récompense", "Expansion"]
 
 export default function ActualitesPage() {
-  const router = useRouter()
-  const [currentTime, setCurrentTime] = useState(new Date())
-  const [visibleArticles, setVisibleArticles] = useState(6)
-  const [isLoading, setIsLoading] = useState(false)
+  const featuredNews = newsData.news.filter(item => item.featured);
+  const regularNews = newsData.news.filter(item => !item.featured);
+  const [currentTime, setCurrentTime] = useState(new Date());
 
-  // Mise à jour de l'heure
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentTime(new Date())
-    }, 1000)
-
-    return () => clearInterval(timer)
-  }, [])
-
-  // Fonction pour charger plus d'articles
-  const loadMoreArticles = () => {
-    setIsLoading(true)
-    setTimeout(() => {
-      setVisibleArticles(prev => prev + 6)
-      setIsLoading(false)
-    }, 1000)
-  }
-
-  // Filtrer les articles en vedette
-  const featuredNews = newsData.news.filter(item => item.featured)
-  // Filtrer les articles réguliers
-  const regularNews = newsData.news.filter(item => !item.featured).slice(0, visibleArticles)
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const formatDate = (date: string) => {
     return new Date(date).toLocaleDateString('fr-FR', {
       day: 'numeric',
       month: 'long',
-      year: 'numeric'
-    })
-  }
-
-  const getTimeAgo = (date: string) => {
-    const now = new Date()
-    const newsDate = new Date(date)
-    const diffTime = Math.abs(now.getTime() - newsDate.getTime())
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
-    
-    if (diffDays === 1) return "Hier"
-    if (diffDays < 7) return `Il y a ${diffDays} jours`
-    if (diffDays < 30) return `Il y a ${Math.ceil(diffDays / 7)} semaines`
-    return `Il y a ${Math.ceil(diffDays / 30)} mois`
-  }
-
-  const handleArticleClick = (slug: string) => {
-    router.push(`/actualites/${slug}`)
-  }
+      year: 'numeric',
+    });
+  };
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-green-50">
-      {/* Hero Section avec slider comme la page d'accueil */}
-      <section className="relative h-[780px] overflow-hidden -mx-4">
-        {/* Image de fond */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/actualités.jpeg')",
-            transform: "scale(1.1)",
-            transition: "transform 0.3s ease-out"
-          }}
+      {/* Hero Section */}
+      <section className="relative h-[780px] overflow-hidden w-screen left-1/2 -translate-x-1/2 mb-12">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/actualités.jpeg')", transform: "scale(1.1)", transition: "transform 0.3s ease-out" }}
         />
-        
-        {/* Overlay sombre */}
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-full px-6 text-center text-white">
             <div className="max-w-3xl mx-auto">
               <div className="flex items-center space-x-4 mb-6 justify-center">
-              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                <span className="text-white text-sm font-medium">EN DIRECT</span>
+                <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                  <span className="text-white text-sm font-medium">EN DIRECT</span>
+                </div>
+                <div className="text-white/80 text-sm">
+                  {currentTime.toLocaleDateString('fr-FR', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                  })}
+                </div>
               </div>
-              <div className="text-white/80 text-sm">
-                {currentTime.toLocaleDateString('fr-FR', { 
-                  weekday: 'long', 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric',
-                  hour: '2-digit',
-                  minute: '2-digit'
-                })}
-              </div>
-            </div>
-            
               <h3 className="text-xl md:text-2xl font-medium text-[#80C342] mb-2">Y3 Audit & Conseils</h3>
-              <h1 className="text-3xl md:text-5xl font-bold mb-4">L'actualité de Y3 Audit & Conseils</h1>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4">L'actualité de Y3 Audit & Conseils</h1>
               <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-              Découvrez nos dernières innovations, certifications et programmes qui façonnent l'avenir de l'audit
-            </p>
+                Découvrez nos dernières innovations, certifications et programmes qui façonnent l'avenir de l'audit
+              </p>
             </div>
           </div>
         </div>
-
-        {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
           <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
             <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
@@ -196,33 +152,26 @@ export default function ActualitesPage() {
                 <span className="text-[#80C342] font-semibold">À la une</span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#073E5D] mb-4">
-              Actualités en vedette
+                Actualités en vedette
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
                 Les nouvelles les plus importantes qui façonnent notre avenir
               </p>
             </div>
-
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
               {featuredNews.map((item, index) => (
                 <article
                   key={item.id}
-                  className={`group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 ${
-                    index === 0 ? 'lg:col-span-2' : ''
-                  }`}
+                  className={`group relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 ${index === 0 ? 'lg:col-span-2' : ''}`}
                 >
                   <div className={`relative ${index === 0 ? 'h-96' : 'h-80'}`}>
                     <div className="absolute inset-0 bg-gradient-to-br from-[#073E5D]/80 via-[#073E5D]/60 to-[#80C342]/40 z-10" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-20" />
-                    
-                    {/* Image de l'actualité */}
-                    <Image
+                    <img
                       src={item.image}
                       alt={item.title}
-                      fill
-                      className="object-cover"
+                      className="object-cover w-full h-full"
                     />
-                    
                     <div className="absolute top-6 left-6 z-30">
                       <div className="flex items-center space-x-3">
                         <span className="bg-[#80C342] text-white px-3 py-1 rounded-full text-sm font-bold">
@@ -230,7 +179,6 @@ export default function ActualitesPage() {
                         </span>
                       </div>
                     </div>
-
                     <div className="absolute bottom-6 left-6 right-6 z-30">
                       <div className="flex items-center text-white/80 text-sm mb-4">
                         <Calendar size={16} className="mr-2" />
@@ -239,26 +187,15 @@ export default function ActualitesPage() {
                         <Clock size={16} className="mr-1" />
                         <span>{item.readTime}</span>
                       </div>
-                      
-                      <h3 className={`text-white font-black mb-4 leading-tight ${
-                        index === 0 ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'
-                      }`}>
-                        {item.title}
-                      </h3>
-                      
+                      <h3 className={`text-white font-black mb-4 leading-tight ${index === 0 ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>{item.title}</h3>
                       <p className="text-white/90 mb-6 line-clamp-2">
                         {item.excerpt}
                       </p>
-
                       <div className="flex items-center justify-between">
-                        <button 
-                          onClick={() => handleArticleClick(item.slug)}
-                          className="group/btn bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-[#073E5D] transition-all duration-300"
-                        >
+                        <button className="group/btn bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-[#073E5D] transition-all duration-300">
                           Lire l'article
                           <ArrowRight size={16} className="inline-block ml-2 group-hover/btn:translate-x-1 transition-transform" />
                         </button>
-                        
                         <div className="flex items-center space-x-3">
                           <button className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white hover:text-[#073E5D] transition-all duration-300">
                             <Share2 size={16} />
@@ -288,7 +225,6 @@ export default function ActualitesPage() {
               Découvrez l'ensemble de nos actualités et restez informé de nos dernières nouvelles
             </p>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {regularNews.map((item) => (
               <article
@@ -296,14 +232,11 @@ export default function ActualitesPage() {
                 className="group relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 sm:hover:-translate-y-2"
               >
                 <div className="relative h-48 sm:h-56">
-                  {/* Image de l'actualité */}
-                  <Image
+                  <img
                     src={item.image}
                     alt={item.title}
-                    fill
-                    className="object-cover"
+                    className="object-cover w-full h-full"
                   />
-                  
                   <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-30">
                     <div className="flex items-center space-x-3">
                       <span className="bg-[#80C342] text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-bold">
@@ -312,33 +245,25 @@ export default function ActualitesPage() {
                     </div>
                   </div>
                 </div>
-
                 <div className="p-4 sm:p-6">
                   <div className="flex items-center text-gray-500 text-xs sm:text-sm mb-3 sm:mb-4">
                     <Calendar size={14} className="mr-1 sm:mr-2" />
-                    <span>{getTimeAgo(item.date)}</span>
+                    <span>{formatDate(item.date)}</span>
                     <span className="mx-1 sm:mx-2">•</span>
                     <Clock size={14} className="mr-1" />
                     <span>{item.readTime}</span>
                   </div>
-
                   <h3 className="text-lg sm:text-xl font-bold text-[#073E5D] mb-2 sm:mb-3 line-clamp-2 group-hover:text-[#80C342] transition-colors duration-300">
                     {item.title}
                   </h3>
-
                   <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 line-clamp-3">
                     {item.excerpt}
                   </p>
-
                   <div className="flex items-center justify-between">
-                    <button 
-                      onClick={() => handleArticleClick(item.slug)}
-                      className="group/btn text-[#073E5D] hover:text-[#80C342] font-bold flex items-center text-sm sm:text-base"
-                    >
+                    <button className="group/btn text-[#073E5D] hover:text-[#80C342] font-bold flex items-center text-sm sm:text-base">
                       Lire la suite
                       <ArrowRight size={14} className="ml-1 sm:ml-2 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
-                    
                     <div className="flex items-center space-x-1 sm:space-x-2">
                       <button className="p-1 sm:p-2 text-gray-400 hover:text-[#80C342] transition-colors duration-300">
                         <Share2 size={14} />
@@ -352,31 +277,8 @@ export default function ActualitesPage() {
               </article>
             ))}
           </div>
-
-          {/* Bouton Charger plus */}
-          {visibleArticles < newsData.news.filter(item => !item.featured).length && (
-            <div className="text-center mt-12">
-              <button
-                onClick={loadMoreArticles}
-                disabled={isLoading}
-                className="group bg-gradient-to-r from-[#073E5D] to-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isLoading ? (
-                  <div className="flex items-center">
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                    Chargement...
-                  </div>
-                ) : (
-                  <div className="flex items-center">
-                    Voir plus d'articles
-                    <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                )}
-              </button>
-            </div>
-          )}
         </div>
       </section>
     </main>
-  )
+  );
 } 
