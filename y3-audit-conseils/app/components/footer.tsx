@@ -11,7 +11,9 @@ export function Footer() {
           {/* À propos */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4">
-              <Image src="/logo-y3.png" alt="Y3 Audit & Conseils" width={400} height={160} className="h-24 sm:h-32 w-auto" />
+              <Link href="/" className="inline-block mb-4">
+                <Image src="/logo-y3.png" alt="Y3 Audit & Conseils" width={200} height={80} className="h-16 w-auto" />
+              </Link>
             </div>
             <p className="text-gray-300 mb-4 text-sm sm:text-base">
               Cabinet d'expertise comptable, d'audit et de conseil dédié à l'accompagnement des entreprises dans leur

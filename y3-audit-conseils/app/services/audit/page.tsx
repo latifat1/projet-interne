@@ -41,18 +41,18 @@ export default function AuditPage() {
               </li>
             </ul>
           </div>
-          <div className="relative h-[400px]">
-            <Image 
-              src="/audit-légal.jpeg" 
-              alt="Audit légal" 
-              fill 
-              className="object-cover rounded-lg shadow-lg" 
+          <div className="relative aspect-video overflow-hidden rounded-lg">
+            <Image
+              src="/audit-légal.jpeg"
+              alt="Audit légal"
+              fill
+              className="object-cover rounded-lg shadow-lg"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="relative h-[400px] order-2 lg:order-1">
+          <div className="relative aspect-video overflow-hidden rounded-lg order-2 lg:order-1">
             <Image
               src="/audit-contractuel.jpeg"
               alt="Audit contractuel"

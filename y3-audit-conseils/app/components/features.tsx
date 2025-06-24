@@ -15,11 +15,11 @@ export function Features() {
     <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative h-[400px] lg:h-[500px]">
+          <div className="relative w-full h-64 md:h-96">
             <Image
               src="/images/test.png"
-              alt="Nos atouts"
-              fill
+              alt="Illustration des caractéristiques"
+              layout="fill"
               className="object-cover rounded-lg shadow-lg"
             />
           </div>

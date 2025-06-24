@@ -35,11 +35,11 @@ export function HeaderFixed() {
       href: "#",
       children: [
         { label: "Audit", href: "/services/audit" },
-        { label: "Comptabilité", href: "/services/comptabilite" },
+        { label: "Expertise comptable", href: "/services/expertise-comptable"},
         { label: "Conseil financier", href: "/services/conseil-financier" },
+        { label: "Conseil fiscal", href: "/services/conseil-fiscal"},
         { label: "Conseil en risques", href: "/services/conseil-en-risques" },
-        { label: "Consulting", href: "/services/consulting" },
-        { label: "Formation", href: "/services/formation" },
+        { label: "Conseil opérationnel", href: "/services/conseil-operationnel" },
         {
           label: "Expertise sectorielle",
           href: "/services/expertise-sectorielle",
@@ -121,16 +121,19 @@ export function HeaderFixed() {
       <div className={cn("bg-white transition-all duration-300", scrolled ? "py-2 shadow-md" : "py-4")}>
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/logo-y3.png"
-                alt="Y3 Audit & Conseils"
-                width={300}
-                height={120}
-                priority
-                className={cn("transition-all duration-300", scrolled ? "h-14 w-auto" : "h-20 w-auto")}
-              />
-            </Link>
+            <div className="flex items-center">
+              <Link href="/" className="flex-shrink-0">
+                <div className="relative w-40 h-16">
+                  <Image
+                    src="/logo-y3.png"
+                    alt="Y3 Audit & Conseils"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+              </Link>
+            </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-6">

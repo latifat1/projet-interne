@@ -41,7 +41,7 @@ export default function ConseilOperationnelPage() {
               </li>
             </ul>
           </div>
-          <div className="relative h-[400px]">
+          <div className="relative aspect-video overflow-hidden rounded-lg">
             <Image
               src="/Stratégie-d'entreprise.jpeg"
               alt="Stratégie d'entreprise"
@@ -52,7 +52,7 @@ export default function ConseilOperationnelPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="relative h-[400px] order-2 lg:order-1">
+          <div className="relative aspect-video overflow-hidden rounded-lg order-2 lg:order-1">
             <Image
               src="/Transformation-digitale.jpeg"
               alt="Transformation digitale"

@@ -32,11 +32,15 @@ export function Navigation() {
       href: "#",
       children: [
         { label: "Audit", href: "/services/audit" },
-        { label: "Comptabilité", href: "/services/comptabilite" },
+        { label: "Expertise comptable", href: "/services/expertise-comptable"},
         { label: "Conseil financier", href: "/services/conseil-financier" },
+        { label: "Conseil fiscal", href: "/services/conseil-fiscal"},
         { label: "Conseil en risques", href: "/services/conseil-en-risques" },
-        { label: "Conseil Opérationnel", href: "/services/conseil-operationnel" },
-        { label: "Formation", href: "/services/formation" },
+        { label: "Conseil opérationnel", href: "/services/conseil-operationnel" },
+        {
+          label: "Expertise sectorielle",
+          href: "/services/expertise-sectorielle",
+        },
       ],
     },
     {
@@ -127,8 +131,10 @@ export function Navigation() {
       <div className={cn("bg-white transition-all duration-300", scrolled ? "py-2 shadow-md" : "py-4")}>
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
-            <Link href="/" className="flex items-center">
-              <Image src="/logo-y3.png" alt="Y3 Audit & Conseils" width={300} height={120} className="h-24 w-auto" />
+            <Link href="/" className="flex items-center space-x-2">
+              <div className="relative w-48 h-24 sm:w-60 sm:h-32 md:w-72 md:h-36">
+                <Image src="/logo-y3.png" alt="Y3 Audit & Conseils" fill className="object-contain" priority />
+              </div>
             </Link>
 
             {/* Desktop Navigation */}

@@ -20,6 +20,7 @@ const nextConfig = {
         pathname: '/uploads/**',
       }
     ],
+    formats: ['image/avif', 'image/webp'],
     // Suppression de unoptimized: true pour permettre l'optimisation des images
   },
   experimental: {

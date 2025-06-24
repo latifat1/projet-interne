@@ -195,7 +195,7 @@ export default function CandidaturePage() {
                   <div className="mt-auto">
                     <div className="relative h-40 w-full rounded-lg overflow-hidden mb-4">
                       <Image
-                        src="/team-working-together.png"
+                        src="/team-working-together.webp"
                         alt="Notre équipe"
                         fill
                         className="object-cover opacity-80"

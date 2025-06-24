@@ -27,23 +27,21 @@ export default function NotreHistoirePage() {
             </p>
           
           </div>
-          <div className="relative h-[400px]">
+          <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
             <Image
               src="/reussite.jpeg"
-              alt="Les débuts de Y3 Audit & Conseils"
+              alt="Illustration de la réussite"
               fill
-              className="object-cover rounded-lg shadow-lg"
             />
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="relative h-[400px] order-2 lg:order-1">
+          <div className="relative h-80 rounded-lg overflow-hidden shadow-lg order-2 lg:order-1">
             <Image
               src="/expertfinancier.jpeg"
-              alt="Y3 Audit & Conseils aujourd'hui"
+              alt="Illustration de l'expertise financière"
               fill
-              className="object-cover rounded-lg shadow-lg"
             />
           </div>
           <div className="order-1 lg:order-2">

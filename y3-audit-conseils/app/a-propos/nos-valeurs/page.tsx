@@ -27,12 +27,11 @@ export default function NosValeursPage() {
               confiance et le respect mutuel.
             </p>
           </div>
-          <div className="relative h-[400px]">
+          <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
             <Image
               src="/philosophie.jpeg"
-              alt="Notre philosophie"
+              alt="Philosophie de Y3 Audit & Conseils"
               fill
-              className="object-cover rounded-lg shadow-lg"
             />
           </div>
         </div>

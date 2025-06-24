@@ -111,27 +111,27 @@ export default function ActualitesPage() {
           <div className="w-full px-6 text-center text-white">
             <div className="max-w-3xl mx-auto">
               <div className="flex items-center space-x-4 mb-6 justify-center">
-                <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-                  <span className="text-white text-sm font-medium">EN DIRECT</span>
-                </div>
-                <div className="text-white/80 text-sm">
-                  {currentTime.toLocaleDateString('fr-FR', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: '2-digit',
+              <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                <span className="text-white text-sm font-medium">EN DIRECT</span>
+              </div>
+              <div className="text-white/80 text-sm">
+                {currentTime.toLocaleDateString('fr-FR', { 
+                  weekday: 'long', 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric',
+                  hour: '2-digit',
                     minute: '2-digit',
                     second: '2-digit'
-                  })}
-                </div>
+                })}
               </div>
+            </div>
               <h3 className="text-xl md:text-2xl font-medium text-[#80C342] mb-2">Y3 Audit & Conseils</h3>
               <h1 className="text-4xl md:text-5xl font-bold mb-4">L'actualité de Y3 Audit & Conseils</h1>
               <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-                Découvrez nos dernières innovations, certifications et programmes qui façonnent l'avenir de l'audit
-              </p>
+              Découvrez nos dernières innovations, certifications et programmes qui façonnent l'avenir de l'audit
+            </p>
             </div>
           </div>
         </div>
@@ -152,7 +152,7 @@ export default function ActualitesPage() {
                 <span className="text-[#80C342] font-semibold">À la une</span>
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#073E5D] mb-4">
-                Actualités en vedette
+              Actualités en vedette
               </h2>
               <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
                 Les nouvelles les plus importantes qui façonnent notre avenir
@@ -167,10 +167,13 @@ export default function ActualitesPage() {
                   <div className={`relative ${index === 0 ? 'h-96' : 'h-80'}`}>
                     <div className="absolute inset-0 bg-gradient-to-br from-[#073E5D]/80 via-[#073E5D]/60 to-[#80C342]/40 z-10" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-20" />
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.title}
-                      className="object-cover w-full h-full"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      priority={index === 0}
                     />
                     <div className="absolute top-6 left-6 z-30">
                       <div className="flex items-center space-x-3">
@@ -232,10 +235,12 @@ export default function ActualitesPage() {
                 className="group relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 sm:hover:-translate-y-2"
               >
                 <div className="relative h-48 sm:h-56">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.title}
-                    className="object-cover w-full h-full"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
                   />
                   <div className="absolute top-3 sm:top-4 left-3 sm:left-4 z-30">
                     <div className="flex items-center space-x-3">

@@ -18,7 +18,7 @@ export default function NotreVisionEtCertificationsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="relative h-[400px]">
             <Image
-              src="/vision.jpeg"
+              src="/vision.webp"
               alt="Notre vision"
               fill
               className="object-cover rounded-lg shadow-lg"

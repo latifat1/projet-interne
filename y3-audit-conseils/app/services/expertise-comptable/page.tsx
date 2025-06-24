@@ -43,10 +43,10 @@ export default function ExpertiseComptablePage() {
               </li>
             </ul>
           </div>
-          <div className="relative h-[400px]">
+          <div className="relative aspect-video overflow-hidden rounded-lg">
             <Image
               src="/accounting-professional-working.png"
-              alt="Tenue comptable"
+              alt="Professionnel de la comptabilité au travail"
               fill
               className="object-cover rounded-lg shadow-lg"
             />
@@ -54,10 +54,10 @@ export default function ExpertiseComptablePage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="relative h-[400px] order-2 lg:order-1">
+          <div className="relative aspect-video overflow-hidden rounded-lg order-2 lg:order-1">
             <Image
               src="/placeholder-1lrxs.png"
-              alt="Reporting financier"
+              alt="Services de comptabilité externalisée"
               fill
               className="object-cover rounded-lg shadow-lg"
             />

@@ -58,10 +58,10 @@ export default function CarrieresPage() {
               </li>
             </ul> */}
           </div>
-          <div className="relative h-[400px]">
+          <div className="relative h-96 w-full overflow-hidden rounded-lg shadow-xl">
             <Image
               src="/bureau.jpeg"
-              alt="Notre équipe"
+              alt="Environnement de travail chez Y3"
               fill
               className="object-cover rounded-lg shadow-lg"
             />
@@ -96,10 +96,10 @@ export default function CarrieresPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="relative h-[400px] order-2 lg:order-1">
+          <div className="relative h-96 w-full overflow-hidden rounded-lg shadow-xl">
             <Image
               src="/profils2.jpeg"
-              alt="Développement de carrière"
+              alt="Opportunités de carrière chez Y3"
               fill
               className="object-cover rounded-lg shadow-lg"
             />
@@ -142,10 +142,10 @@ export default function CarrieresPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="flex items-center mb-4">
-                <div className="relative w-16 h-16 mr-4">
+                <div className="relative h-20 w-20 flex-shrink-0">
                   <Image src="/employee-testimonial-1.png" alt="Sophie D." fill className="rounded-full object-cover" />
                 </div>
-                <div>
+                <div className="ml-4">
                   <h3 className="text-lg font-semibold text-[#073E5D]">Sophie D.</h3>
                   <p className="text-[#80C342]">Manager Audit, depuis 5 ans</p>
                 </div>
@@ -158,10 +158,10 @@ export default function CarrieresPage() {
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="flex items-center mb-4">
-                <div className="relative w-16 h-16 mr-4">
+                <div className="relative h-20 w-20 flex-shrink-0">
                   <Image src="/employee-testimonial-2.png" alt="Thomas L." fill className="rounded-full object-cover" />
                 </div>
-                <div>
+                <div className="ml-4">
                   <h3 className="text-lg font-semibold text-[#073E5D]">Thomas L.</h3>
                   <p className="text-[#80C342]">Expert-comptable, depuis 3 ans</p>
                 </div>
@@ -174,10 +174,10 @@ export default function CarrieresPage() {
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <div className="flex items-center mb-4">
-                <div className="relative w-16 h-16 mr-4">
+                <div className="relative h-20 w-20 flex-shrink-0">
                   <Image src="/employee-testimonial-3.png" alt="Julie M." fill className="rounded-full object-cover" />
                 </div>
-                <div>
+                <div className="ml-4">
                   <h3 className="text-lg font-semibold text-[#073E5D]">Julie M.</h3>
                   <p className="text-[#80C342]">Consultante, depuis 2 ans</p>
                 </div>

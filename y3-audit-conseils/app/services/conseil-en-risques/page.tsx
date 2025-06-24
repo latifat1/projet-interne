@@ -42,7 +42,7 @@ export default function ConseilEnRisquesPage() {
               </li>
             </ul>
           </div>
-          <div className="relative h-[400px]">
+          <div className="relative aspect-video overflow-hidden rounded-lg">
             <Image
               src="/Conseil-en-Risques.jpeg"
               alt="Gestion des risques"
@@ -53,7 +53,7 @@ export default function ConseilEnRisquesPage() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="relative h-[400px] order-2 lg:order-1">
+          <div className="relative aspect-video overflow-hidden rounded-lg order-2 lg:order-1">
             <Image
               src="/Conformité-réglementaire.jpeg"
               alt="Conformité réglementaire"

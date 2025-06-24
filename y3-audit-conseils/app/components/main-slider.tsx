@@ -14,36 +14,40 @@ interface Slide {
   image: string
   buttonText: string
   buttonLink: string
+  priority: boolean
 }
 
 export function MainSlider() {
   const slides: Slide[] = [
     {
       id: 1,
-      title: "Solutions d'audit et de conseil",
+      title: "Bienvenue chez Y3 Audit & Conseils",
       subtitle: "Y3 Audit & Conseils",
-      description: "Nous accompagnons votre entreprise dans sa croissance avec des solutions sur mesure.",
+      description: "Votre partenaire de confiance pour l'audit, le conseil et l'expertise comptable.",
       image: "/équipement.jpg",
       buttonText: "Nos services",
       buttonLink: "/services",
+      priority: true,
     },
     {
       id: 2,
-      title: "Expertise comptable",
-      subtitle: "Y3 Audit & Conseils",
-      description: "Une équipe d'experts à votre service pour optimiser votre gestion financière.",
+      title: "Des experts à votre écoute",
+      subtitle: "Notre équipe",
+      description: "Une équipe pluridisciplinaire pour répondre à tous vos besoins.",
       image: "/Expert.jpg",
-      buttonText: "En savoir plus",
-      buttonLink: "/services/expertise-comptable",
+      buttonText: "Découvrir l'équipe",
+      buttonLink: "/a-propos/notre-equipe",
+      priority: true,
     },
     {
       id: 3,
-      title: "Conseil fiscal",
-      subtitle: "Y3 Audit & Conseils",
-      description: "Optimisez votre fiscalité avec nos solutions adaptées à votre activité.",
+      title: "Une expertise reconnue",
+      subtitle: "Nos domaines de compétence",
+      description: "Audit, expertise comptable, conseil financier, fiscal et social.",
       image: "/expertises.jpg",
-      buttonText: "Découvrir",
-      buttonLink: "/services/conseil-fiscal",
+      buttonText: "Nos domaines d'expertise",
+      buttonLink: "/services/expertise-sectorielle",
+      priority: true,
     },
   ]
 
@@ -106,12 +110,11 @@ export function MainSlider() {
         >
           <div className="relative h-full w-full">
             <Image
-              src={slide.image || "/placeholder.svg"}
+              src={slide.image}
               alt={slide.title}
               fill
+              priority={slide.priority}
               className="object-cover"
-              priority={index === 0}
-              sizes="100vw"
             />
             <div className="absolute inset-0 bg-black bg-opacity-50"></div>
             <div className="absolute inset-0 flex items-center justify-center">
