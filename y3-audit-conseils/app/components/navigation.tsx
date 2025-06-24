@@ -60,7 +60,6 @@ export function Navigation() {
       href: "#",
       children: [
         { label: "Carrières", href: "/rejoignez-nous/carrieres" },
-        { label: "Offres d'emploi", href: "/rejoignez-nous/offres-emploi" },
         { label: "Stages", href: "/rejoignez-nous/stages" },
         { label: "Candidature spontanée", href: "/rejoignez-nous/candidature" },
       ],

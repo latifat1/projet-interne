@@ -200,14 +200,8 @@ export default function CarrieresPage() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              href="/rejoignez-nous/offres-emploi"
-              className="bg-[#80C342] hover:bg-[#073E5D] text-white px-6 py-3 rounded-md transition-colors duration-300"
-            >
-              Voir nos offres d'emploi
-            </Link>
-            <Link
               href="/rejoignez-nous/candidature"
-              className="bg-white border border-[#073E5D] text-[#073E5D] hover:bg-gray-50 px-6 py-3 rounded-md transition-colors duration-300"
+              className="bg-[#80C342] text-white hover:bg-[#073E5D] px-6 py-3 rounded-md transition-colors duration-300"
             >
               Candidature spontanée
             </Link>
