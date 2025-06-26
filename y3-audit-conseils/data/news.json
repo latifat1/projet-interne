@@ -2,33 +2,75 @@
   "news": [
     {
       "id": 1,
-      "title": "Y3 Audit & Conseils renforce son expertise en audit",
-      "excerpt": "Notre cabinet annonce l'arrivée de nouveaux experts pour renforcer notre département d'audit et mieux servir nos clients.",
-      "content": "<p>Y3 Audit & Conseils est fier d'annoncer le renforcement de son équipe d'audit avec l'arrivée de nouveaux experts qualifiés. Cette expansion stratégique permettra à notre cabinet de mieux répondre aux besoins croissants de nos clients et de renforcer notre position de leader dans le domaine de l'audit en Côte d'Ivoire.</p><h2>Une expertise renforcée</h2><p>Les nouveaux membres de notre équipe apportent une expertise approfondie dans divers domaines de l'audit, notamment :</p><ul><li>Audit financier</li><li>Audit opérationnel</li><li>Audit des systèmes d'information</li><li>Audit de conformité</li></ul>",
-      "image": "/news/audit-expertise.jpg",
-      "date": "2024-03-15",
-      "category": "Actualités",
-      "slug": "renforcement-expertise-audit"
+      "title": "Nouvelle certification ISO 27001 obtenue pour Y3 Audit & Conseils",
+      "excerpt": "Notre cabinet vient d'obtenir la certification ISO 27001, renforçant notre expertise en sécurité de l'information et notre engagement envers l'excellence.",
+      "content": "<p>Notre cabinet vient d'obtenir la certification ISO 27001, renforçant notre expertise en sécurité de l'information et notre engagement envers l'excellence.</p><p>Ce jalon important démontre notre adhésion aux normes internationales les plus strictes en matière de gestion de la sécurité des données, garantissant à nos clients une protection et une confidentialité maximales. L'implémentation de ce standard nous permet d'optimiser nos processus internes et de renforcer la résilience de nos infrastructures face aux cybermenaces.</p>",
+      "image": "/Expert.webp",
+      "date": "2024-06-15",
+      "category": "Certification",
+      "slug": "certification-iso-27001",
+      "featured": true,
+      "readTime": "5 min"
     },
     {
       "id": 2,
-      "title": "Nouvelle certification ISO pour Y3 Audit & Conseils",
-      "excerpt": "Nous sommes fiers d'annoncer l'obtention de la certification ISO 9001:2015, reconnaissant la qualité de nos services.",
-      "content": "<p>Y3 Audit & Conseils a obtenu avec succès la certification ISO 9001:2015, une reconnaissance internationale de la qualité de nos services et de notre engagement envers l'excellence opérationnelle.</p><h2>Une reconnaissance de qualité</h2><p>La certification ISO 9001:2015 est la norme internationale la plus reconnue pour les systèmes de management de la qualité. Cette certification atteste de notre capacité à :</p><ul><li>Fournir des services de qualité constante</li><li>Améliorer continuellement nos processus</li><li>Répondre efficacement aux besoins de nos clients</li><li>Maintenir un système de management robuste</li></ul>",
-      "image": "/news/iso-certification.jpg",
-      "date": "2024-03-10",
-      "category": "Certification",
-      "slug": "nouvelle-certification-iso"
+      "title": "Finance Verte et Transition Énergétique : Notre Cabinet à la Jorisk 2024",
+      "excerpt": "La Journée du risque industriel et écologique (Jorisk) est un événement annuel qui réunit des professionnels de l'environnement, des risques industriels et de la finance pour discuter des enjeux liés à la transition vers une économie durable. L'édition 2024 de la Jorisk a été l'occasion pour notre cabinet de faire une présentation sur le thème \"Fonds verts, finance environnementale, quels rôles pour les banques, assurances, établissements & experts financiers ?\".",
+      "content": "<p>La Journée du risque industriel et écologique (Jorisk) est un événement annuel qui réunit des professionnels de l'environnement, des risques industriels et de la finance pour discuter des enjeux liés à la transition vers une économie durable. L'édition 2024 de la Jorisk a été l'occasion pour notre cabinet de faire une présentation sur le thème \\\"Fonds verts, finance environnementale, quels rôles pour les banques, assurances, établissements & experts financiers ?\\\".</p><p>Dans notre présentation, nous avons souligné le rôle crucial que peuvent jouer les banques, les assurances, les établissements financiers et les experts financiers dans la mobilisation des investissements nécessaires pour financer la transition écologique.</p><p>Voici quelques-uns des points clés de la présentation :</p><ul><li>Les fonds verts sont des instruments financiers qui permettent d'investir dans des projets et des entreprises ayant un impact environnemental positif.</li><li>La finance environnementale est un domaine en pleine croissance qui offre de nombreuses opportunités aux investisseurs.</li><li>Les banques, les assurances, les établissements financiers et les experts financiers peuvent jouer un rôle essentiel dans le développement de la finance verte en : a) identifiant et évaluant les projets et les entreprises ayant un impact environnemental positif; b) structurant et gérant des fonds verts; c) conseillant les investisseurs sur les opportunités d'investissement en finance verte.</li></ul><p>La signature récente d'un accord de concession entre la Côte d'Ivoire et un opérateur pour la construction d'une centrale solaire de 50 MWp dans le nord du pays est un exemple palpable de financement vert à hauteur de 56 millions d'euros (https://lnkd.in/ejnTMJgQ)</p><p>#jorisk2024#y3auditconseils#financeverte#transitionenergetique</p>",
+      "image": "/jorisk.png",
+      "date": "2024-06-10",
+      "category": "Événement",
+      "slug": "formation-audit-digital",
+      "featured": false,
+      "readTime": "3 min"
     },
     {
       "id": 3,
-      "title": "Y3 Audit & Conseils lance son nouveau programme de formation",
-      "excerpt": "Découvrez notre nouveau programme de formation professionnelle en audit et conseil financier.",
-      "content": "<p>Y3 Audit & Conseils est ravi d'annoncer le lancement de son nouveau programme de formation professionnelle, conçu pour développer les compétences des professionnels en audit et conseil financier.</p><h2>Un programme complet</h2><p>Notre nouveau programme de formation couvre plusieurs domaines essentiels :</p><ul><li>Techniques d'audit modernes</li><li>Analyse financière avancée</li><li>Gestion des risques</li><li>Conformité réglementaire</li><li>Outils et technologies de l'audit</li></ul>",
-      "image": "/news/formation.jpg",
-      "date": "2024-03-05",
-      "category": "Formation",
-      "slug": "nouveau-programme-formation"
+      "title": "Partenariat stratégique avec les leaders du secteur technologique",
+      "excerpt": "Y3 Audit & Conseils annonce un partenariat majeur qui révolutionnera nos services d'audit pour les entreprises tech.",
+      "content": "<p>Y3 Audit & Conseils annonce un partenariat majeur qui révolutionnera nos services d'audit pour les entreprises tech.</p><p>Cette collaboration nous permettra d'intégrer des technologies de pointe dans nos processus d'audit, offrant à nos clients des services plus rapides, plus précis et plus pertinents. Nous sommes ravis de nous associer à des innovateurs pour redéfinir les standards de l'excellence en audit.</p>",
+      "image": "/actualités.webp",
+      "date": "2024-06-08",
+      "category": "Partenariat",
+      "slug": "partenariat-tech",
+      "featured": true,
+      "readTime": "4 min"
+    },
+    {
+      "id": 4,
+      "title": "Côte d'Ivoire : Le chemin vers la sortie de la liste grise du GAFI (4/4)",
+      "excerpt": "Après avoir exploré les impacts, les réformes nécessaires et les comparaisons avec d'autres pays africains, il est temps de se tourner vers la solution. Comment la Côte d'Ivoire peut-elle sortir de cette liste et transformer ce défi en opportunité ?",
+      "content": "<p>Après avoir exploré les impacts, les réformes nécessaires et les comparaisons avec d'autres pays africains, il est temps de se tourner vers la solution. Comment la Côte d'Ivoire peut-elle sortir de cette liste et transformer ce défi en opportunité ?</p><p>L'inscription sur la liste grise du GAFI n'est pas une sanction, mais un appel à l'action. Elle souligne des failles dans le système financier ivoirien tout en offrant une chance de les corriger. Plusieurs pays, comme le Sénégal, ont montré qu'il est possible de surmonter cette étape en combinant engagement politique, réformes stratégiques et coopération efficace.</p><p>Pour tourner la page et sortir de la liste grise, le pays doit engager des réformes profondes et cohérentes. Tout commence par un renforcement de la gouvernance, qui nécessite une modernisation des institutions. Cela implique d'allouer des ressources supplémentaires aux autorités chargées des enquêtes et des poursuites tout en garantissant l'indépendance et l'efficacité des régulateurs financiers. En parallèle, la transparence doit devenir un pilier central. Mettre en place des mécanismes fiables pour identifier les bénéficiaires effectifs des entreprises n'est plus une option, mais une nécessité. Ces initiatives renforceront la confiance des partenaires internationaux, notamment sur la traçabilité des flux financiers.</p><p>Dans cette transformation, le rôle du secteur privé est crucial. Les entreprises doivent s'impliquer activement en adoptant des standards élevés de gouvernance et en renforçant leurs dispositifs de conformité. Une synergie entre le public et le privé, fondée sur une confiance mutuelle, peut accélérer le processus. Enfin, communiquer sur les progrès réalisés est essentiel. En partageant régulièrement des mises à jour claires et transparentes, le pays enverra un signal fort aux investisseurs et partenaires internationaux, leur montrant que les efforts entrepris portent leurs fruits.</p><p>#CôteDIvoire #Afrique #GAFI #Finance #LBCFT</p>",
+      "image": "/gafii.png",
+      "date": "2024-06-05",
+      "category": "Réglementation",
+      "slug": "webinaire-audit-numerique",
+      "featured": false,
+      "readTime": "2 min"
+    },
+    {
+      "id": 5,
+      "title": "Prix d'excellence en audit remporté lors du forum national",
+      "excerpt": "Notre équipe a été récompensée pour son innovation dans les méthodologies d'audit lors du forum national des experts-comptables.",
+      "content": "<p>Notre équipe a été récompensée pour son innovation dans les méthodologies d'audit lors du forum national des experts-comptables.</p><p>Ce prix prestigieux reconnaît notre engagement à repousser les limites de la profession et à fournir des services d'une qualité exceptionnelle. C'est une reconnaissance du travail acharné et du dévouement de toute notre équipe.</p>",
+      "image": "/actualités.webp",
+      "date": "2024-06-03",
+      "category": "Récompense",
+      "slug": "prix-excellence-audit",
+      "featured": false,
+      "readTime": "3 min"
+    },
+    {
+      "id": 6,
+      "title": "Expansion internationale : ouverture du bureau de Londres",
+      "excerpt": "Y3 Audit & Conseils franchit une nouvelle étape avec l'ouverture de son premier bureau international à Londres.",
+      "content": "<p>Y3 Audit & Conseils franchit une nouvelle étape avec l'ouverture de son premier bureau international à Londres.</p><p>Cette expansion stratégique nous positionne au cœur de l'un des plus grands centres financiers mondiaux, nous permettant de mieux servir nos clients internationaux et de saisir de nouvelles opportunités de croissance. Notre bureau de Londres offrira une gamme complète de services d'audit et de conseil.</p>",
+      "image": "/actualités.webp",
+      "date": "2024-05-28",
+      "category": "Expansion",
+      "slug": "bureau-londres",
+      "featured": true,
+      "readTime": "6 min"
     }
   ]
 } 

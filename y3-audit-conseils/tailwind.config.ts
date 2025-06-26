@@ -8,6 +8,16 @@ const config: Config = {
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      'xs': '320px', // Téléphone petit
+      'sm': '360px', // Téléphone moyen (début)
+      'ms': '414px', // Téléphone moyen (fin)
+      'md': '768px', // Tablette
+      'lg': '1024px', // Tablette large / petit laptop
+      'xl': '1280px', // Ordinateur portable
+      '2xl': '1440px', // Grand écran
+      '3xl': '1920px', // Très grand écran
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",

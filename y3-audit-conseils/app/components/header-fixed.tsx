@@ -119,10 +119,10 @@ export function HeaderFixed() {
 
       {/* Main Navigation */}
       <div className={cn("bg-white transition-all duration-300", scrolled ? "py-2 shadow-md" : "py-4")}>
-        <div className="container mx-auto px-4">
+        <div className="w-full px-0 md:px-2">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <Link href="/" className="flex-shrink-0">
+              <Link href="/" className="flex-shrink-0 ml-0">
                 <div className="relative w-40 h-16">
                   <Image
                     src="/logo-y3.png"
@@ -136,7 +136,7 @@ export function HeaderFixed() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-6">
+            <nav className="hidden md:flex items-center space-x-6 mr-2">
               {navItems.map((item) => (
                 <ImprovedDropdown key={item.label} item={item} />
               ))}
@@ -149,7 +149,7 @@ export function HeaderFixed() {
             </nav>
 
             {/* Mobile Navigation Toggle */}
-            <button className="md:hidden text-[#073E5D] hover:text-[#80C342]" onClick={() => setIsOpen(!isOpen)}>
+            <button className="md:hidden text-[#073E5D] hover:text-[#80C342] mr-1" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
@@ -159,7 +159,7 @@ export function HeaderFixed() {
       {/* Mobile Navigation Menu */}
       {isOpen && (
         <div className="md:hidden bg-white border-t shadow-lg max-h-[80vh] overflow-y-auto">
-          <div className="container mx-auto px-4 py-4">
+          <div className="w-full px-4 py-4">
             {navItems.map((item) => (
               <div key={item.label} className="py-3 border-b border-gray-100 last:border-b-0">
                 {item.children ? (

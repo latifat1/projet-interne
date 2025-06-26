@@ -6,97 +6,12 @@ export function Footer() {
 
   return (
     <footer className="bg-[#073E5D] text-white w-full">
-      <div className="container mx-auto px-4 sm:px-6 py-8 sm:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {/* À propos */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <div className="mb-4">
-              <Link href="/" className="inline-block mb-4">
-                <Image src="/logo-y3.png" alt="Y3 Audit & Conseils" width={200} height={80} className="h-16 w-auto" />
-              </Link>
-            </div>
-            <p className="text-gray-300 mb-4 text-sm sm:text-base">
-              Cabinet d'expertise comptable, d'audit et de conseil dédié à l'accompagnement des entreprises dans leur
-              développement.
-            </p>
-            <div className="flex space-x-4">
-              <a 
-                href="https://www.linkedin.com/company/y3-audit-conseils/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-white hover:text-[#80C342] transition-colors" 
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} className="sm:w-5 sm:h-5" />
-              </a>
-            </div>
-          </div>
-
-          {/* Liens rapides */}
-          <div>
-            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Liens rapides</h3>
-            <ul className="space-y-1 sm:space-y-2">
-              <li>
-                <Link
-                  href="/a-propos/notre-histoire"
-                  className="text-gray-300 hover:text-[#80C342] transition-colors flex items-center"
-                >
-                  <ChevronRight size={16} className="mr-1" />
-                  Notre histoire
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/a-propos/notre-equipe"
-                  className="text-gray-300 hover:text-[#80C342] transition-colors flex items-center"
-                >
-                  <ChevronRight size={16} className="mr-1" />
-                  Notre équipe
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/a-propos/notre-vision-et-certifications"
-                  className="text-gray-300 hover:text-[#80C342] transition-colors flex items-center"
-                >
-                  <ChevronRight size={16} className="mr-1" />
-                  Notre vision et certifications
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/audit"
-                  className="text-gray-300 hover:text-[#80C342] transition-colors flex items-center"
-                >
-                  <ChevronRight size={16} className="mr-1" />
-                  Audit
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/comptabilite"
-                  className="text-gray-300 hover:text-[#80C342] transition-colors flex items-center"
-                >
-                  <ChevronRight size={16} className="mr-1" />
-                  Comptabilité
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services/conseil-financier"
-                  className="text-gray-300 hover:text-[#80C342] transition-colors flex items-center"
-                >
-                  <ChevronRight size={16} className="mr-1" />
-                  Conseil financier
-                </Link>
-              </li>
-            </ul>
-          </div>
-
+      <div className="container mx-auto px-2 xs:px-3 sm:px-4 ms:px-6 py-8 sm:py-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-2 xs:gap-4 sm:gap-8 ms:gap-12 lg:gap-16">
           {/* Contact */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
-            <ul className="space-y-3">
+          <div className="lg:col-span-8">
+            <h3 className="text-sm xs:text-base sm:text-lg font-semibold mb-4">Contact</h3>
+            <ul className="space-y-1 xs:space-y-2 sm:space-y-3">
               <li className="flex items-start">
                 <MapPin size={18} className="mr-2 text-[#80C342] flex-shrink-0 mt-0.5" />
                 <span className="text-gray-300">Cocody Rieviera Golf Mafit - Appt 103 immeuble Tiga</span>
@@ -117,9 +32,9 @@ export function Footer() {
           </div>
 
           {/* Newsletter */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Newsletter</h3>
-            <p className="text-gray-300 mb-4">
+          <div className="lg:col-span-4">
+            <h3 className="text-xs xs:text-sm sm:text-base font-semibold mb-3">Newsletter</h3>
+            <p className="text-gray-300 mb-4 text-xs xs:text-sm sm:text-base">
               Inscrivez-vous à notre newsletter pour recevoir nos actualités et conseils.
             </p>
             <form
@@ -134,16 +49,27 @@ export function Footer() {
                   name="EMAIL"
                   required
                   placeholder="Votre email"
-                  className="w-full px-3 py-2 bg-[#0A4E73] border border-[#1A6A95] rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#80C342]"
+                  className="w-full px-1 xs:px-2 py-1.5 sm:px-3 bg-[#0A4E73] border border-[#1A6A95] rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#80C342] text-xs xs:text-sm sm:text-base"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-[#80C342] hover:bg-gray-700 text-white py-2 px-4 rounded-md transition-colors"
+                className="w-full bg-[#80C342] hover:bg-gray-700 text-white py-1.5 px-1 xs:px-2 sm:px-4 rounded-md transition-colors text-xs xs:text-sm sm:text-base"
               >
                 S'inscrire
               </button>
             </form>
+            <div className="mt-6">
+              <a 
+                href="https://www.linkedin.com/company/y3-audit-conseils/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white hover:text-[#80C342] transition-colors" 
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={22} />
+              </a>
+            </div>
           </div>
         </div>
       </div>

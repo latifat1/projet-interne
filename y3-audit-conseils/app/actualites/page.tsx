@@ -4,82 +4,56 @@ import { useState, useEffect } from "react"
 import { Calendar, ArrowRight, Search, Filter, Eye, Share2, BookmarkPlus, TrendingUp, Clock, Users, Newspaper } from "lucide-react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
-
-// Données locales d'actualités
-const newsData = {
-  news: [
-    {
-      id: 1,
-      title: "Nouvelle certification ISO 27001 obtenue pour Y3 Audit & Conseils",
-      excerpt: "Notre cabinet vient d'obtenir la certification ISO 27001, renforçant notre expertise en sécurité de l'information et notre engagement envers l'excellence.",
-      image: "/Expert.jpg",
-      date: "2024-06-15",
-      category: "Certification",
-      slug: "certification-iso-27001",
-      featured: true,
-      readTime: "5 min"
-    },
-    {
-      id: 2,
-      title: "Lancement du programme de formation en audit digital",
-      excerpt: "Découvrez notre nouveau programme de formation spécialisé dans l'audit digital, conçu pour les professionnels de demain.",
-      image: "/équipement.jpg",
-      date: "2024-06-10",
-      category: "Formation",
-      slug: "formation-audit-digital", 
-      featured: false,
-      readTime: "3 min"
-    },
-    {
-      id: 3,
-      title: "Partenariat stratégique avec les leaders du secteur technologique",
-      excerpt: "Y3 Audit & Conseils annonce un partenariat majeur qui révolutionnera nos services d'audit pour les entreprises tech.",
-      image: "/actualités.jpeg",
-      date: "2024-06-08",
-      category: "Partenariat",
-      slug: "partenariat-tech",
-      featured: true,
-      readTime: "4 min"
-    },
-    {
-      id: 4,
-      title: "Webinaire : Les défis de l'audit à l'ère du numérique",
-      excerpt: "Rejoignez notre webinaire exclusif sur les transformations digitales qui impactent le monde de l'audit moderne.",
-      image: "/actualités.jpeg",
-      date: "2024-06-05",
-      category: "Événement",
-      slug: "webinaire-audit-numerique",
-      featured: false,
-      readTime: "2 min"
-    },
-    {
-      id: 5,
-      title: "Prix d'excellence en audit remporté lors du forum national",
-      excerpt: "Notre équipe a été récompensée pour son innovation dans les méthodologies d'audit lors du forum national des experts-comptables.",
-      image: "/actualités.jpeg",
-      date: "2024-06-03",
-      category: "Récompense",
-      slug: "prix-excellence-audit",
-      featured: false,
-      readTime: "3 min"
-    },
-    {
-      id: 6,
-      title: "Expansion internationale : ouverture du bureau de Londres",
-      excerpt: "Y3 Audit & Conseils franchit une nouvelle étape avec l'ouverture de son premier bureau international à Londres.",
-      image: "/actualités.jpeg",
-      date: "2024-05-28",
-      category: "Expansion",
-      slug: "bureau-londres",
-      featured: true,
-      readTime: "6 min"
-    }
-  ]
-}
+import Link from "next/link"
+import newsData from "../../data/news.json"
 
 const categories = ["Tous", "Certification", "Formation", "Partenariat", "Événement", "Récompense", "Expansion"]
 
+type NewsArticle = typeof newsData.news[0];
+
+function NewsModal({ article, onClose }: { article: NewsArticle; onClose: () => void }) {
+  return (
+    <div className="fixed inset-0 bg-black bg-opacity-60 z-50 flex justify-center items-center p-4">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col">
+        <div className="relative h-64 sm:h-80 w-full">
+          <Image
+            src={article.image}
+            alt={article.title}
+            fill
+            className="object-cover rounded-t-2xl"
+          />
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 bg-white/50 backdrop-blur-sm rounded-full p-2 text-gray-800 hover:bg-white transition-all"
+            aria-label="Fermer la modale"
+          >
+            <ArrowRight className="h-6 w-6 transform rotate-45" />
+          </button>
+        </div>
+        <div className="p-6 sm:p-8 flex-grow overflow-y-auto">
+          <span className="bg-[#80C342] text-white px-3 py-1 rounded-full text-sm font-bold mb-4 inline-block">
+            {article.category}
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-black text-[#073E5D] mb-4">{article.title}</h2>
+          <div className="flex items-center text-gray-500 text-sm mb-6" style={{ display: 'none' }}>
+            <Calendar size={16} className="mr-2" />
+            <span>{new Date(article.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+            <span className="mx-2">•</span>
+            <Clock size={16} className="mr-1" />
+            <span>{article.readTime}</span>
+          </div>
+          <div
+            className="prose prose-lg max-w-none"
+            dangerouslySetInnerHTML={{ __html: article.content }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ActualitesPage() {
+  const [selectedArticle, setSelectedArticle] = useState<NewsArticle | null>(null);
   const featuredNews = newsData.news.filter(item => item.featured);
   const regularNews = newsData.news.filter(item => !item.featured);
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -104,7 +78,7 @@ export default function ActualitesPage() {
       {/* Hero Section */}
       <section className="relative h-[780px] overflow-hidden w-screen left-1/2 -translate-x-1/2 mb-12">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/actualités.jpeg')", transform: "scale(1.1)", transition: "transform 0.3s ease-out" }}
+          style={{ backgroundImage: "url('/actualite.png')", transform: "scale(1.1)", transition: "transform 0.3s ease-out" }}
         />
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="absolute inset-0 flex items-center justify-center">
@@ -145,7 +119,7 @@ export default function ActualitesPage() {
       {/* Articles en vedette */}
       {featuredNews.length > 0 && (
         <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-gray-50 to-blue-50">
-          <div className="w-full px-4 sm:px-6">
+          <div className="w-full px-12 sm:px-16 lg:px-36">
             <div className="text-center mb-12 sm:mb-16">
               <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#80C342]/10 to-green-100 px-4 py-2 rounded-full mb-4">
                 <TrendingUp className="text-[#80C342]" size={20} />
@@ -183,19 +157,21 @@ export default function ActualitesPage() {
                       </div>
                     </div>
                     <div className="absolute bottom-6 left-6 right-6 z-30">
-                      <div className="flex items-center text-white/80 text-sm mb-4">
+                      <div className="flex items-center text-white/80 text-sm mb-4" style={{ display: 'none' }}>
                         <Calendar size={16} className="mr-2" />
                         <span>{formatDate(item.date)}</span>
                         <span className="mx-2">•</span>
                         <Clock size={16} className="mr-1" />
                         <span>{item.readTime}</span>
                       </div>
-                      <h3 className={`text-white font-black mb-4 leading-tight ${index === 0 ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>{item.title}</h3>
-                      <p className="text-white/90 mb-6 line-clamp-2">
+                      <h3 className={`text-white font-black mb-3 leading-tight ${index === 0 ? 'text-2xl md:text-3xl' : 'text-xl md:text-2xl'}`}>{item.title}</h3>
+                      <p className="text-white/90 mb-5 line-clamp-2">
                         {item.excerpt}
                       </p>
                       <div className="flex items-center justify-between">
-                        <button className="group/btn bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-[#073E5D] transition-all duration-300">
+                        <button 
+                          onClick={() => setSelectedArticle(item)}
+                          className="group/btn bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-[#073E5D] transition-all duration-300">
                           Lire l'article
                           <ArrowRight size={16} className="inline-block ml-2 group-hover/btn:translate-x-1 transition-transform" />
                         </button>
@@ -219,7 +195,7 @@ export default function ActualitesPage() {
 
       {/* Toutes nos actualités */}
       <section className="py-12 sm:py-16 lg:py-20 bg-white">
-        <div className="w-full px-4 sm:px-6">
+        <div className="w-full px-12 sm:px-16 lg:px-28">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#073E5D] mb-4">
               Toutes nos actualités
@@ -228,11 +204,11 @@ export default function ActualitesPage() {
               Découvrez l'ensemble de nos actualités et restez informé de nos dernières nouvelles
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {regularNews.map((item) => (
               <article
                 key={item.id}
-                className="group relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 sm:hover:-translate-y-2"
+                className="group relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg sm:shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1 sm:hover:-translate-y-2 w-full max-w-sm sm:w-[calc(50%-2rem)] lg:w-[calc(25%-2rem)]"
               >
                 <div className="relative h-48 sm:h-56">
                   <Image
@@ -250,8 +226,8 @@ export default function ActualitesPage() {
                     </div>
                   </div>
                 </div>
-                <div className="p-4 sm:p-6">
-                  <div className="flex items-center text-gray-500 text-xs sm:text-sm mb-3 sm:mb-4">
+                <div className="p-4 sm:p-5">
+                  <div className="flex items-center text-gray-500 text-xs sm:text-sm mb-2 sm:mb-3" style={{ display: 'none' }}>
                     <Calendar size={14} className="mr-1 sm:mr-2" />
                     <span>{formatDate(item.date)}</span>
                     <span className="mx-1 sm:mx-2">•</span>
@@ -261,11 +237,14 @@ export default function ActualitesPage() {
                   <h3 className="text-lg sm:text-xl font-bold text-[#073E5D] mb-2 sm:mb-3 line-clamp-2 group-hover:text-[#80C342] transition-colors duration-300">
                     {item.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 line-clamp-3">
+                  <p className="text-sm text-gray-600 mb-3 sm:mb-4 line-clamp-3">
                     {item.excerpt}
                   </p>
                   <div className="flex items-center justify-between">
-                    <button className="group/btn text-[#073E5D] hover:text-[#80C342] font-bold flex items-center text-sm sm:text-base">
+                    <button
+                      onClick={() => setSelectedArticle(item)}
+                      className="group/btn text-[#073E5D] hover:text-[#80C342] font-bold flex items-center text-sm sm:text-base"
+                    >
                       Lire la suite
                       <ArrowRight size={14} className="ml-1 sm:ml-2 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
@@ -284,6 +263,10 @@ export default function ActualitesPage() {
           </div>
         </div>
       </section>
+
+      {selectedArticle && (
+        <NewsModal article={selectedArticle} onClose={() => setSelectedArticle(null)} />
+      )}
     </main>
   );
 } 

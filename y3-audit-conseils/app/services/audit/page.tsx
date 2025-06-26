@@ -42,11 +42,11 @@ export default function AuditPage() {
             </ul>
           </div>
           <div className="relative aspect-video overflow-hidden rounded-lg">
-            <Image
+            <Image 
               src="/audit-légal.jpeg"
-              alt="Audit légal"
-              fill
-              className="object-cover rounded-lg shadow-lg"
+              alt="Audit légal" 
+              fill 
+              className="object-cover rounded-lg shadow-lg" 
             />
           </div>
         </div>

@@ -43,7 +43,7 @@ export function HumanCentered() {
                 important pour nous. C'est la raison pour laquelle nous donnons une place de choix aux échanges.
               </p>
 
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white p-6 rounded-lg shadow-sm max-w-lg mx-auto">
                 <h4 className="text-xl font-semibold text-[#073E5D] mb-3">Notre engagement</h4>
                 <ul className="space-y-3">
                   <li className="flex items-start">

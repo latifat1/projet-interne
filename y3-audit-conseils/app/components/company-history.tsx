@@ -31,21 +31,21 @@ export function CompanyHistory() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-[#073E5D] text-white p-4 rounded-lg text-center">
+                <div className="bg-[#073E5D] text-white p-4 rounded-lg text-center max-w-lg mx-auto">
                   <h4 className="text-xl font-bold mb-2">Agilité</h4>
                   <p className="text-sm">
                     La culture d'entreprise et l'organisation permettent aux équipes de s'adapter aux spécificités de
                     chacun des clients.
                   </p>
                 </div>
-                <div className="bg-[#073E5D] text-white p-4 rounded-lg text-center">
+                <div className="bg-[#073E5D] text-white p-4 rounded-lg text-center max-w-lg mx-auto">
                   <h4 className="text-xl font-bold mb-2">Technicité</h4>
                   <p className="text-sm">
                     L'expertise pointue des fondateurs et la renommée de notre cabinet sur le plan national,
                     sous-régional et africain.
                   </p>
                 </div>
-                <div className="bg-[#073E5D] text-white p-4 rounded-lg text-center">
+                <div className="bg-[#073E5D] text-white p-4 rounded-lg text-center max-w-lg mx-auto">
                   <h4 className="text-xl font-bold mb-2">Expérience</h4>
                   <p className="text-sm">
                     Notre vocation, être le partenaire privilégié de nos clients en leur assurant un accompagnement de

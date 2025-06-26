@@ -15,7 +15,7 @@ export default function ExpertiseSectoriellePage() {
       intro:
         "Nos experts vous assurent une sécurité maximale par la certification de vos comptes. Les services que nous vous proposons incluent les missions suivantes :",
       services: ["Commissariat aux comptes", "Audit contractuel", "Procédures convenues", "Missions spéciales"],
-      image: "/audit-et-assurance.jpeg",
+      image: "/audit-et-assurance.webp",
     },
     {
       id: "expertise-comptable",
@@ -32,7 +32,7 @@ export default function ExpertiseSectoriellePage() {
         "Normes IFRS",
         "Assistance aux Directeurs Financiers",
       ],
-      image: "/Expertise-comptable.jpeg",
+      image: "/Expertise-comptable.webp",
     },
     {
       id: "conseil-operationnel",
@@ -48,7 +48,7 @@ export default function ExpertiseSectoriellePage() {
         "Conseil en gestion de risque",
         "Conseil en système d'information",
       ],
-      image: "/Conseil-Opérationnel.jpeg",
+      image: "/Conseil-Opérationnel.webp",
     },
     {
       id: "conseil-financier",
@@ -59,7 +59,7 @@ export default function ExpertiseSectoriellePage() {
       intro:
         "Nos experts vous guident tout au long de votre cycle d'investissement et vous fournissent les informations appropriées dont vous avez besoin pour réaliser votre investissement. Les services que nous vous proposons incluent les missions suivantes :",
       services: ["Modélisation financière", "Valorisation", "Due diligences", "M&A"],
-      image: "/financial-analysis.png",
+      image: "/financial-analysis.webp",
     },
     {
       id: "juridique-fiscal",
@@ -76,7 +76,7 @@ export default function ExpertiseSectoriellePage() {
         "Droit des affaires",
         "Droit social",
       ],
-      image: "/compliance-audit.png",
+      image: "/compliance-audit.webp",
     },
   ]
 

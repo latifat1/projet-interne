@@ -45,7 +45,7 @@ export default function ConseilFiscalPage() {
           </div>
           <div className="relative h-[400px]">
             <Image
-              src="/placeholder.svg?height=400&width=600&query=tax%20advisor%20consultation"
+              src="/Optimisation-fiscale.png"
               alt="Optimisation fiscale"
               fill
               className="object-cover rounded-lg shadow-lg"
@@ -56,7 +56,7 @@ export default function ConseilFiscalPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div className="relative h-[400px] order-2 lg:order-1">
             <Image
-              src="/placeholder.svg?height=400&width=600&query=tax%20compliance%20business"
+              src="/Conformité-fiscale.png"
               alt="Conformité fiscale"
               fill
               className="object-cover rounded-lg shadow-lg"

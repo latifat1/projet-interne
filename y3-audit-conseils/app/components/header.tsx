@@ -118,15 +118,20 @@ export function Header() {
 
       {/* Main Navigation */}
       <div className={cn("bg-white transition-all duration-300", scrolled ? "py-2 shadow-md" : "py-4")}>
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-1 xs:px-2 sm:px-3 ms:px-4 md:px-6">
           <div className="flex justify-between items-center">
             <Link href="/" className="flex items-center">
               <Image
-                src="/logo.png"
+                src="/logo-y3.png"
                 alt="Y3 Audit & Conseils"
-                width={150}
-                height={50}
-                className={cn("transition-all duration-300", scrolled ? "h-8 w-auto" : "h-10 w-auto")}
+                width={200}
+                height={70}
+                className={cn(
+                  "transition-all duration-300 h-auto",
+                  scrolled
+                    ? "h-8 max-w-[60px] xs:h-10 xs:max-w-[80px] sm:h-12 sm:max-w-[100px] ms:h-12 ms:max-w-[120px] md:h-14 md:max-w-[140px] lg:h-16 lg:max-w-[180px]"
+                    : "h-10 max-w-[80px] xs:h-12 xs:max-w-[100px] sm:h-14 sm:max-w-[120px] ms:h-14 ms:max-w-[140px] md:h-16 md:max-w-[180px] lg:h-20 lg:max-w-[220px]"
+                )}
               />
             </Link>
 

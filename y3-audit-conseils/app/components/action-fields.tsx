@@ -65,7 +65,7 @@ export function ActionFields() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {fields.map((field, index) => (
             <FadeInWhenVisible key={index} delay={index * 0.1}>
-              <div className="bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:border-[#80C342] transition-colors duration-300 h-[250px] flex flex-col">
+              <div className={`bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:border-[#80C342] transition-colors duration-300 h-[250px] flex flex-col max-w-lg mx-auto${field.title === 'Stratégie' ? ' lg:col-start-2' : ''}`}>
                 <div className="flex flex-col items-center">
                   <div className="bg-transparent p-3 rounded-full mb-3">{field.icon}</div>
                   <h3 className="text-xl font-semibold text-[#073E5D] text-center mb-3">{field.title}</h3>
