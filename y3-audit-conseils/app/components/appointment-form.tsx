@@ -44,12 +44,8 @@ export function AppointmentForm({ selectedDate, selectedTime }: AppointmentFormP
   const validateForm = () => {
     const newErrors: Record<string, string> = {}
 
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = "Le prénom est requis"
-    }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = "Le nom est requis"
+    if (!formData.firstName.trim() || !formData.lastName.trim()) {
+      newErrors.name = "Le prénom et le nom sont requis"
     }
 
     if (!formData.email.trim()) {
@@ -63,7 +59,7 @@ export function AppointmentForm({ selectedDate, selectedTime }: AppointmentFormP
     }
 
     if (!formData.subject) {
-      newErrors.subject = "Le sujet est requis"
+      newErrors.subject = "Le service est requis"
     }
 
     if (!selectedDate) {
@@ -86,37 +82,31 @@ export function AppointmentForm({ selectedDate, selectedTime }: AppointmentFormP
     setIsSubmitting(true)
 
     try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
+      const response = await fetch('/api/appointment', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
         body: JSON.stringify({
-          firstName: formData.firstName,
-          lastName: formData.lastName,
+          name: `${formData.firstName} ${formData.lastName}`,
           email: formData.email,
           phone: formData.phone,
           company: formData.company,
-          subject: formData.subject,
+          service: formData.subject,
           message: formData.message,
-          date: selectedDate?.toISOString() ?? "",
-          time: selectedTime ?? "",
+          date: selectedDate?.toISOString(),
+          time: selectedTime,
         }),
       })
 
-      const data = await response.json()
-
       if (response.ok) {
         setIsSubmitted(true)
-        setIsSubmitting(false)
-
         setTimeout(() => {
           router.push("/contact/rendez-vous/confirmation")
         }, 2000)
       } else {
         setIsSubmitting(false)
-        alert(data.error || "Une erreur est survenue lors de l'envoi.")
+        alert("Une erreur est survenue lors de l'envoi.")
       }
     } catch (error) {
       setIsSubmitting(false)
@@ -125,7 +115,7 @@ export function AppointmentForm({ selectedDate, selectedTime }: AppointmentFormP
   }
 
   const subjects = [
-    { value: "", label: "Sélectionnez un sujet" },
+    { value: "", label: "Sélectionnez un service" },
     { value: "audit", label: "Audit" },
     { value: "expertise-comptable", label: "Expertise comptable" },
     { value: "conseil-fiscal", label: "Conseil fiscal" },
@@ -188,10 +178,10 @@ export function AppointmentForm({ selectedDate, selectedTime }: AppointmentFormP
             autoComplete="given-name"
             className={cn(
               "w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#80C342]",
-              errors.firstName ? "border-red-500" : "border-gray-300",
+              errors.name ? "border-red-500" : "border-gray-300",
             )}
           />
-          {errors.firstName && <p className="mt-1 text-sm text-red-500">{errors.firstName}</p>}
+          {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
         </div>
 
         <div>
@@ -207,10 +197,10 @@ export function AppointmentForm({ selectedDate, selectedTime }: AppointmentFormP
             autoComplete="family-name"
             className={cn(
               "w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#80C342]",
-              errors.lastName ? "border-red-500" : "border-gray-300",
+              errors.name ? "border-red-500" : "border-gray-300",
             )}
           />
-          {errors.lastName && <p className="mt-1 text-sm text-red-500">{errors.lastName}</p>}
+          {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
         </div>
       </div>
 
@@ -271,7 +261,7 @@ export function AppointmentForm({ selectedDate, selectedTime }: AppointmentFormP
 
       <div>
         <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-          Sujet du rendez-vous *
+          Service demandé *
         </label>
         <select
           id="subject"
@@ -283,9 +273,9 @@ export function AppointmentForm({ selectedDate, selectedTime }: AppointmentFormP
             errors.subject ? "border-red-500" : "border-gray-300",
           )}
         >
-          {subjects.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
+          {subjects.map((s) => (
+            <option key={s.value} value={s.value}>
+              {s.label}
             </option>
           ))}
         </select>

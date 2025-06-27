@@ -6,10 +6,10 @@ export function Footer() {
 
   return (
     <footer className="bg-[#073E5D] text-white w-full">
-      <div className="container mx-auto px-2 xs:px-3 sm:px-4 ms:px-6 py-8 sm:py-10">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-8 sm:py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-2 xs:gap-4 sm:gap-8 ms:gap-12 lg:gap-16">
           {/* Contact */}
-          <div className="lg:col-span-8">
+          <div className="lg:col-start-2 lg:col-span-6">
             <h3 className="text-sm xs:text-base sm:text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-1 xs:space-y-2 sm:space-y-3">
               <li className="flex items-start">
@@ -37,28 +37,30 @@ export function Footer() {
             <p className="text-gray-300 mb-4 text-xs xs:text-sm sm:text-base">
               Inscrivez-vous à notre newsletter pour recevoir nos actualités et conseils.
             </p>
-            <form
-              action="https://gmail.us7.list-manage.com/subscribe/post?u=564210c912175ad3e644784c4&id=a26ea5c286&f_id=002ea8e4f0"
-              method="POST"
-              target="_blank"
-              className="space-y-2"
-            >
-              <div>
-                <input
-                  type="email"
-                  name="EMAIL"
-                  required
-                  placeholder="Votre email"
-                  className="w-full px-1 xs:px-2 py-1.5 sm:px-3 bg-[#0A4E73] border border-[#1A6A95] rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#80C342] text-xs xs:text-sm sm:text-base"
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-[#80C342] hover:bg-gray-700 text-white py-1.5 px-1 xs:px-2 sm:px-4 rounded-md transition-colors text-xs xs:text-sm sm:text-base"
+            <div className="max-w-sm">
+              <form
+                action="https://gmail.us7.list-manage.com/subscribe/post?u=564210c912175ad3e644784c4&id=a26ea5c286&f_id=002ea8e4f0"
+                method="POST"
+                target="_blank"
+                className="space-y-2"
               >
-                S'inscrire
-              </button>
-            </form>
+                <div>
+                  <input
+                    type="email"
+                    name="EMAIL"
+                    required
+                    placeholder="Votre email"
+                    className="w-full px-1 xs:px-2 py-1.5 sm:px-3 bg-[#0A4E73] border border-[#1A6A95] rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#80C342] text-xs xs:text-sm sm:text-base"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-[#80C342] hover:bg-gray-700 text-white py-1.5 px-1 xs:px-2 sm:px-4 rounded-md transition-colors text-xs xs:text-sm sm:text-base"
+                >
+                  S'inscrire
+                </button>
+              </form>
+            </div>
             <div className="mt-6">
               <a 
                 href="https://www.linkedin.com/company/y3-audit-conseils/" 

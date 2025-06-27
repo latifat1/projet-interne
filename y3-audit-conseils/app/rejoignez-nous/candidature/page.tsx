@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import Image from "next/image"
-import { Upload, CheckCircle, Loader2, FileText, User, Mail } from "lucide-react"
+import { Upload, CheckCircle, Loader2, FileText, User, Mail, Phone, Briefcase } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { FadeInWhenVisible } from "@/app/components/animations"
 
@@ -15,6 +15,7 @@ export default function CandidaturePage() {
     email: "",
     telephone: "",
     poste: "",
+    lettre: "",
     cv: null as File | null,
   })
 
@@ -82,47 +83,40 @@ export default function CandidaturePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (validateForm()) {
-      setIsSubmitting(true)
-      setErrors((prev) => {
-        const newErrors = { ...prev }
-        delete newErrors.submit
-        return newErrors
+    if (!validateForm()) return
+
+    setIsSubmitting(true)
+    setErrors({})
+
+    const formDataToSend = new FormData()
+    formDataToSend.append("lastName", formData.nom)
+    formDataToSend.append("firstName", formData.prenom)
+    formDataToSend.append("email", formData.email)
+    formDataToSend.append("phone", formData.telephone)
+    formDataToSend.append("position", formData.poste)
+    formDataToSend.append("coverLetter", formData.lettre)
+    if (formData.cv) {
+      formDataToSend.append("cv", formData.cv)
+    }
+
+    try {
+      const response = await fetch("/api/application", {
+        method: "POST",
+        body: formDataToSend,
       })
 
-      const formDataToSend = new FormData()
-      formDataToSend.append("nom", formData.nom)
-      formDataToSend.append("prenom", formData.prenom)
-      formDataToSend.append("email", formData.email)
-      formDataToSend.append("telephone", formData.telephone)
-      formDataToSend.append("poste", formData.poste)
-      // NB: Do NOT append the CV file due to Formspree limitation on file uploads
-
-      try {
-        const response = await fetch("https://formspree.io/f/xyzjzevy", {
-          method: "POST",
-          body: formDataToSend,
-          headers: {
-            Accept: "application/json",
-          },
+      if (response.ok) {
+        setIsSubmitted(true)
+      } else {
+        const errorData = await response.json()
+        setErrors({
+          submit: errorData.error || "Une erreur est survenue lors de l'envoi.",
         })
-
-        if (response.ok) {
-          setIsSubmitting(false)
-          setIsSubmitted(true)
-        } else {
-          const errorData = await response.json()
-          setErrors({
-            submit: errorData.errors
-              ? errorData.errors.map((error: any) => error.message).join(", ")
-              : "Une erreur est survenue lors de l'envoi.",
-          })
-          setIsSubmitting(false)
-        }
-      } catch (error) {
-        setErrors({ submit: "Une erreur est survenue lors de l'envoi." })
-        setIsSubmitting(false)
       }
+    } catch (error) {
+      setErrors({ submit: "Une erreur réseau ou serveur est survenue." })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -282,15 +276,21 @@ export default function CandidaturePage() {
                         <label htmlFor="telephone" className="block text-sm font-medium text-gray-700 mb-1">
                           Téléphone
                         </label>
-                        <input
-                          type="tel"
-                          id="telephone"
-                          name="telephone"
-                          value={formData.telephone}
-                          onChange={handleChange}
-                          autoComplete="tel"
-                          className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#80C342]"
-                        />
+                        <div className="relative">
+                          <input
+                            type="tel"
+                            id="telephone"
+                            name="telephone"
+                            value={formData.telephone}
+                            onChange={handleChange}
+                            autoComplete="tel"
+                            className={cn(
+                              "w-full pl-10 pr-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#80C342]",
+                              errors.telephone ? "border-red-500" : "border-gray-300",
+                            )}
+                          />
+                          <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                        </div>
                       </div>
                     </div>
 
@@ -298,55 +298,72 @@ export default function CandidaturePage() {
                       <label htmlFor="poste" className="block text-sm font-medium text-gray-700 mb-1">
                         Poste recherché *
                       </label>
-                      <input
-                        type="text"
-                        id="poste"
-                        name="poste"
-                        value={formData.poste}
-                        onChange={handleChange}
-                        placeholder="Ex: Expert-comptable, Auditeur, Consultant..."
-                        autoComplete="organization-title"
-                        className={cn(
-                          "w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#80C342]",
-                          errors.poste ? "border-red-500" : "border-gray-300",
-                        )}
-                      />
+                      <div className="relative">
+                        <input
+                          type="text"
+                          id="poste"
+                          name="poste"
+                          value={formData.poste}
+                          onChange={handleChange}
+                          className={cn(
+                            "w-full pl-10 pr-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#80C342]",
+                            errors.poste ? "border-red-500" : "border-gray-300",
+                          )}
+                        />
+                        <Briefcase className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                      </div>
                       {errors.poste && <p className="mt-1 text-sm text-red-500">{errors.poste}</p>}
                     </div>
 
-                      <div>
-                        <label htmlFor="cv" className="block text-sm font-medium text-gray-700 mb-1">
-                          CV (format PDF) *
-                        </label>
-                        <div
-                          className={cn(
-                            "border-2 border-dashed rounded-md p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors",
-                            errors.cv ? "border-red-500" : "border-gray-300",
-                          )}
-                        >
-                          <input
-                            type="file"
-                            id="cv"
-                            name="cv"
-                            accept=".pdf"
-                            onChange={handleFileChange}
-                            className="hidden"
-                          />
-                          <label htmlFor="cv" className="cursor-pointer block">
-                            <Upload className="h-6 w-6 text-gray-400 mx-auto mb-2" />
-                            <p className="text-sm text-gray-500">{formData.cv ? formData.cv.name : "Choisir un fichier"}</p>
-                          </label>
-                        </div>
-                        {errors.cv && <p className="mt-1 text-sm text-red-500">{errors.cv}</p>}
-                        <p className="text-xs text-gray-500 mt-1">
-                          Note: Les fichiers ne sont pas envoyés via ce formulaire en raison des limitations de Formspree.
-                          Veuillez les envoyer par email si demandé.
-                        </p>
+                    <div>
+                      <label htmlFor="lettre" className="block text-sm font-medium text-gray-700 mb-1">
+                        Lettre de motivation
+                      </label>
+                      <textarea
+                        id="lettre"
+                        name="lettre"
+                        rows={5}
+                        value={formData.lettre}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#80C342]"
+                      />
                     </div>
 
-                    {errors.submit && <p className="mt-1 text-sm text-red-500">{errors.submit}</p>}
+                    <div>
+                      <label htmlFor="cv" className="block text-sm font-medium text-gray-700 mb-1">
+                        CV (format PDF) *
+                      </label>
+                      <div
+                        className={cn(
+                          "border-2 border-dashed rounded-md p-4 text-center cursor-pointer hover:bg-gray-50 transition-colors",
+                          errors.cv ? "border-red-500" : "border-gray-300",
+                        )}
+                      >
+                        <input
+                          type="file"
+                          id="cv"
+                          name="cv"
+                          accept=".pdf"
+                          onChange={handleFileChange}
+                          className="hidden"
+                        />
+                        <label htmlFor="cv" className="cursor-pointer block">
+                          <Upload className="h-6 w-6 text-gray-400 mx-auto mb-2" />
+                          <p className="text-sm text-gray-500">{formData.cv ? formData.cv.name : "Choisir un fichier"}</p>
+                        </label>
+                      </div>
+                      {errors.cv && <p className="mt-1 text-sm text-red-500">{errors.cv}</p>}
+                      <p className="text-xs text-gray-500 mt-1">
+                        Note: Les fichiers ne sont pas envoyés via ce formulaire en raison des limitations de Formspree.
+                        Veuillez les envoyer par email si demandé.
+                      </p>
+                    </div>
 
-                    <div className="pt-4">
+                    {errors.submit && (
+                      <p className="mt-1 text-sm text-center text-red-500">{errors.submit}</p>
+                    )}
+
+                    <div className="pt-2">
                       <button
                         type="submit"
                         disabled={isSubmitting}

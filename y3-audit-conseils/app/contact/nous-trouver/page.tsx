@@ -58,17 +58,37 @@ export default function NousTrouverPage() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
-    if (validateForm()) {
-      setIsSubmitting(true)
+    if (!validateForm()) return
 
-      // Simulate API call
-      setTimeout(() => {
-        setIsSubmitting(false)
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.nom,
+          email: formData.email,
+          subject: formData.objet,
+          message: formData.message,
+        }),
+      })
+
+      if (response.ok) {
         setIsSubmitted(true)
-      }, 1500)
+      } else {
+        const data = await response.json()
+        alert(data.error || "Une erreur est survenue lors de l'envoi.")
+      }
+    } catch (error) {
+      alert("Erreur réseau ou serveur. Veuillez réessayer plus tard.")
+    } finally {
+      setIsSubmitting(false)
     }
   }
 

@@ -23,7 +23,7 @@ export default function RendezVousPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <FadeInWhenVisible>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
               <h2 className="text-2xl font-semibold text-[#073E5D] mb-6">Choisissez votre créneau</h2>
               <Calendar
                 selectedDate={selectedDate}
@@ -35,7 +35,7 @@ export default function RendezVousPage() {
           </FadeInWhenVisible>
 
           <FadeInWhenVisible delay={0.2}>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
               <h2 className="text-2xl font-semibold text-[#073E5D] mb-6">Vos informations</h2>
               <AppointmentForm selectedDate={selectedDate} selectedTime={selectedTime} />
             </div>
