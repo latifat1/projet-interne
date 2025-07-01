@@ -36,12 +36,7 @@ export function Header() {
         { label: "Expertise comptable", href: "/services/expertise-comptable" },
         { label: "Conseil financier", href: "/services/conseil-financier" },
         { label: "Conseil fiscal", href: "/services/conseil-fiscal" },
-        { label: "Conseil en risques", href: "/services/conseil-en-risques" },
         { label: "Conseil opérationnel", href: "/services/conseil-operationnel" },
-        {
-          label: "Expertise sectorielle",
-          href: "/services/expertise-sectorielle",
-        },
       ],
     },
     {

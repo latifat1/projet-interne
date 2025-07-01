@@ -59,7 +59,7 @@ export function CompanyHistory() {
           <FadeInWhenVisible delay={0.2}>
             <div className="relative h-[500px] rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/images/test.png"
+                src="/boss.jpg"
                 alt="Équipe Y3 Audit & Conseils"
                 fill
                 className="object-cover"
