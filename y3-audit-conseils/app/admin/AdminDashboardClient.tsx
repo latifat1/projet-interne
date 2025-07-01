@@ -55,16 +55,14 @@ const STATUS_COLORS: Record<string, string> = {
   valide: "text-[#80C342]",
 };
 
-const APPOINTMENT_STATUS_LABELS: Record<string, string> = {
+const APPOINTMENT_STATUS_LABELS = {
   en_attente: "En attente",
   confirme: "Confirmé",
-  a_replanifier: "À replanifier",
   annule: "Annulé",
 };
-const APPOINTMENT_STATUS_COLORS: Record<string, string> = {
-  en_attente: "bg-gray-200 text-gray-700",
-  confirme: "bg-[#80C342] text-white",
-  a_replanifier: "bg-yellow-400 text-white",
+const APPOINTMENT_STATUS_COLORS = {
+  en_attente: "bg-gray-300 text-gray-700",
+  confirme: "bg-green-500 text-white",
   annule: "bg-red-500 text-white",
 };
 
@@ -77,11 +75,9 @@ const TABS = [
 ];
 
 const APPOINTMENT_TABS = [
-  { key: "all", label: "Tous" },
   { key: "en_attente", label: "En attente" },
-  { key: "confirme", label: "Confirmés" },
-  { key: "a_replanifier", label: "À replanifier" },
-  { key: "annule", label: "Annulés" },
+  { key: "confirme", label: "Confirmé" },
+  { key: "annule", label: "Annulé" },
 ];
 
 const PAGE_SIZE = 5;
@@ -281,7 +277,6 @@ export default function AdminDashboardClient({ contacts, appointments, applicati
         )}
         {section === 'rendezvous' && (
           <>
-            <h1 className="text-2xl font-bold mb-2 text-[#073E5D]">Rendez-vous</h1>
             <p className="text-gray-600 mb-6">Consultez, filtrez et gérez les rendez-vous clients.</p>
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
               <div className="flex gap-2">
@@ -342,7 +337,6 @@ export default function AdminDashboardClient({ contacts, appointments, applicati
                         >
                           <option value="en_attente">En attente</option>
                           <option value="confirme">Confirmé</option>
-                          <option value="a_replanifier">À replanifier</option>
                           <option value="annule">Annulé</option>
                         </select>
                       </td>
