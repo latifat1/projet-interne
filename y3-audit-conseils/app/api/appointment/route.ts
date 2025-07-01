@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
+import { sendMail } from "../utils/sendMail";
 
 const prisma = new PrismaClient();
 
@@ -23,6 +24,13 @@ export async function POST(request: Request) {
         time,
         message,
       },
+    });
+
+    // Envoi d'un email personnalisé à l'utilisateur
+    await sendMail({
+      to: email,
+      subject: "Confirmation de votre demande de rendez-vous",
+      text: `Bonjour ${name},\n\nNous avons bien reçu votre demande de rendez-vous pour le service : ${service}.\nNous vous contacterons rapidement pour confirmer la date et l'heure.\n\nCordialement,\nL'équipe Y3 Audit & Conseils`,
     });
 
     return NextResponse.json(appointment, { status: 201 });

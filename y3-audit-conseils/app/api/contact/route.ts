@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
+import { sendMail } from "../utils/sendMail";
 
 const prisma = new PrismaClient();
 
@@ -21,9 +22,16 @@ export async function POST(request: Request) {
       },
     });
 
+    // Envoi d'un email personnalisé à l'utilisateur
+    await sendMail({
+      to: email,
+      subject: "Merci pour votre message !",
+      text: `Bonjour ${name},\n\nNous avons bien reçu votre message : \"${subject}\".\nNous vous répondrons rapidement.\n\nCordialement,\nL'équipe Y3 Audit & Conseils`,
+    });
+
     return NextResponse.json(submission, { status: 201 });
   } catch (error) {
     console.error('Error creating contact submission:', error);
-    return NextResponse.json({ error: 'An error occurred while processing your request.' }, { status: 500 });
+    return NextResponse.json({ error: error instanceof Error ? error.message : String(error) }, { status: 500 });
   }
 } 

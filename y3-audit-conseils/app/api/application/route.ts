@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 import { writeFile } from 'fs/promises';
 import path from 'path';
+import { sendMail } from "../utils/sendMail";
 
 const prisma = new PrismaClient();
 
@@ -36,6 +37,13 @@ export async function POST(request: Request) {
         cvPath: `/uploads/cvs/${cvFilename}`,
         coverLetter,
       },
+    });
+
+    // Envoi d'un email personnalisé à l'utilisateur
+    await sendMail({
+      to: email,
+      subject: "Votre candidature a bien été reçue !",
+      text: `Bonjour ${firstName},\n\nNous avons bien reçu votre candidature pour le poste de ${position}.\nNous vous remercions de l'intérêt porté à notre cabinet.\nNous reviendrons vers vous après étude de votre dossier.\n\nCordialement,\nL'équipe Y3 Audit & Conseils`,
     });
 
     return NextResponse.json(application, { status: 201 });
